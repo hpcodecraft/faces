@@ -1,0 +1,253 @@
+// *** GRID ***
+@gutter-width: 25;
+@columns:      6;
+@total-width:  100%;
+
+// *** SOME CLASSES ***
+
+.thumb {
+  float: left;
+  width: 5rem;
+  height: 5rem;
+  margin-right: .5rem;
+  .has-background-image;
+}
+
+.info {
+  float: left;
+}
+
+.taglist {
+  margin-top: .5rem;
+
+  button {
+    .padding-small;
+  }
+}
+
+// *** LAYOUT ***
+
+// grid layout
+header {
+  .logo     { .column(2.5); }
+  .message  { .column(2.5); }
+  .misc     { .column(1); }
+}
+nav a       { .column(1); }
+section {
+  h2, form,
+    .bar    { .column(6); }
+  .col      { .column(2); }
+  tr        { .column(6); }
+  th, td    { .column(2); }
+  &.changelog .col:last-child {
+    .column(4);
+  }
+}
+
+@media screen and (max-width: 910px) {
+  header {
+    .logo     { .column(6); }
+    .message  { .column(5); }
+    .misc     { .column(1); }
+  }
+  nav a       { .column(2); }
+  section {
+    .col      { .column(3); }
+    &.changelog .col:last-child {
+      .column(3);
+    }
+  }
+}
+
+@media screen and (max-width: 580px) {
+  nav a       { .column(3); }
+  section {
+    .col      { .column(6); }
+    &.changelog .col:last-child {
+      .column(6);
+    }
+  }
+}
+
+// styling
+
+h2 {
+  padding-top: 2rem;
+}
+
+h3 {
+  margin: 2rem 0 0 0;
+}
+
+body {
+  color: @medium;
+}
+
+header {
+  background: @medium;
+  color: @background-body;
+  min-height: 3.5rem;
+  position: relative;
+  .fullwidth;
+
+  .logo {
+    .font-header;
+    color: @background-body;
+  }
+
+  .message {
+    display: none;
+  }
+
+  button {
+    .padding-small;
+  }
+
+  .dev {
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+  }
+
+  .back {
+    color: #fff;
+    position: absolute;
+    right: 1rem;
+    bottom: .25rem;
+  }
+}
+
+nav {
+  background: @light;
+  .fullwidth;
+
+  a {
+    background: @light;
+    text-align: center;
+    padding: .5rem 0;
+  }
+}
+
+section {
+  padding-bottom: 2rem;
+  .fullwidth;
+
+  .col {
+
+    padding-bottom: 2rem;
+
+    ol {
+      counter-reset: li; // Initiate a counter
+      list-style: none; // Remove default numbering
+      *list-style: decimal; // Keep using default numbering for IE6/7
+
+      li {
+        text-align: left;
+        position: relative;
+        clear: left;
+
+        a {
+          color: @medium;
+        }
+      }
+
+      li:before {
+        content: counter(li);
+        counter-increment: li;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: .15rem .35rem;
+        color: @dark;
+        background: @background-body-transparent;
+      }
+    }
+
+    .title {
+      font-weight: bold;
+      word-wrap: break-word;
+    }
+
+    .tags {
+      .fullwidth;
+    }
+  } // section .col
+
+  table {
+    .fullwidth;
+
+    tr:nth-child(even) {
+      background-color: @light;
+    }
+  }
+
+  th {
+    text-align: left;
+  }
+
+  td {
+    word-wrap: break-word;
+  }
+} // section
+
+
+.settings {
+
+  .settings-block {
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+  }
+
+  .save {
+    position: fixed;
+    top: 10rem;
+    right: 1rem;
+
+    button {
+      font-size: 1.5rem;
+    }
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  i {
+    display: inline-block;
+    margin: 1rem 0;
+  }
+
+  .thumbnail-status {
+    margin-bottom: 1rem;
+  }
+
+  #setting-imprint {
+    display: none;
+
+    textarea {
+      margin-top: 1rem;
+    }
+  }
+
+  #settings-config {
+    label {
+      font-weight: bold;
+    }
+
+    i {
+      display: block;
+      margin: .5rem 0 2rem 0;
+    }
+  }
+
+  #setting-categories {
+    button {
+      height: 20px;
+      width: 20px;
+      font-size: 1rem;
+      padding: 0;
+    }
+  }
+
+}

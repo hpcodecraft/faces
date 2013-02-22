@@ -1,0 +1,145 @@
+// mixins
+.debug(@color: red) {
+  border: 1px solid @color;
+}
+
+.triangle(@_, @size, @color) {
+  display: block;
+  height:0;
+  width:0;
+}
+
+.triangle( up, @size: 5px, @color: black ) {
+  border-left: @size solid transparent;
+  border-right: @size solid transparent;
+  border-bottom: @size solid @color;
+}
+
+.triangle( right, @size: 5px, @color: black ) {
+  border-top: @size solid transparent;
+  border-bottom: @size solid transparent;
+  border-left: @size solid @color;
+}
+
+.triangle( down, @size: 5px, @color: black ) {
+  border-left: @size solid transparent;
+  border-right: @size solid transparent;
+  border-top: @size solid @color;
+}
+
+.triangle( left, @size: 5px, @color: black ) {
+  border-top: @size solid transparent;
+  border-bottom: @size solid transparent;
+  border-right: @size solid @color;
+}
+
+.letterpress( @color: #fff ) {
+  text-shadow: 0px 0.06em 0 @color;
+}
+
+.text-border( @color: #000, @size: 0px ) {
+  text-shadow:  1px  0px @size @color,
+                0px  1px @size @color,
+               -1px  0px @size @color,
+                0px -1px @size @color;
+}
+
+.text-shadow( @x: 2px, @y: 2px, @size: 2px, @color: #000 ) {
+  text-shadow: @x @y @size @color;
+  filter: dropshadow(color=@color, offx=@x, offy=@y);
+}
+
+
+.button-round( @size: 16px, @background: #ccc, @color: #fff, @borderthickness: 0px ) {
+  background: @background;
+  border: @borderthickness solid @color;
+  color: @color;
+  width:       @size;
+  height:      @size;
+  line-height: @size - @borderthickness;
+  font-size:   floor( @size * .6 );
+  font-family: Arial,sans-serif;
+  padding: 0;
+  border-radius: @size / 2;
+  text-align: center;
+  font-weight: normal;
+}
+
+.box-sizing( @value: content-box ) {
+  -moz-box-sizing: @value;
+       box-sizing: @value;
+}
+
+.border-radius( @r: 5px ) {
+  border-radius: @r; // TODO: remove if not used elsewhere
+}
+
+.border-radius-top( @r: 5px ) {
+  -webkit-border-radius: @r @r 0 0;
+          border-radius: @r @r 0 0;
+}
+
+.border-radius-bottom( @r: 5px ) {
+  -webkit-border-radius: 0 0 @r @r;
+          border-radius: 0 0 @r @r;
+}
+
+.box-shadow( @x: 0px, @y: 0px, @size: 2px, @blur: 2px, @color: #000 ) {
+  -webkit-box-shadow: @x @y @size @blur @color;
+     -moz-box-shadow: @x @y @size @blur @color;
+          box-shadow: @x @y @size @blur @color;
+}
+
+.box-shadow-inset( @x: 0px, @y: 0px, @size: 2px, @blur: 2px, @color: #000 ) {
+  -webkit-box-shadow: inset @x @y @size @blur @color;
+     -moz-box-shadow: inset @x @y @size @blur @color;
+          box-shadow: inset @x @y @size @blur @color;
+}
+
+.box-shadow-none {
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
+
+.background-gradient( @start: @bg-gradient-start, @end: @bg-gradient-end ) {
+  background: @start;
+  background: -moz-linear-gradient(top, @start 0%, @end 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@end));
+  background: -webkit-linear-gradient(top, @start 0%,@end 100%);
+  background: -o-linear-gradient(top, @start 0%,@end 100%);
+  background: -ms-linear-gradient(top, @start 0%,@end 100%);
+  background: linear-gradient(top, @start 0%,@end 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@start', endColorstr='@end',GradientType=0 );
+}
+
+.background-cover {
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+}
+
+.rotate( @rotation: 180deg ) {
+  transform: rotate(@rotation);
+  -moz-transform:rotate(@rotation);
+  -webkit-transform:rotate(@rotation);
+  -o-transform:rotate(@rotation);
+  -ms-transform:rotate(@rotation);
+}
+
+.selection( @color, @background-color ) {
+  ::selection,
+  ::-moz-selection {
+    background: @color;
+    color: @background-color;
+  }
+}
+
+.placeholder( @color ) {
+  ::-moz-placeholder,
+  ::-webkit-input-placeholder {
+    color: @color;
+    font-style: italic;
+  }
+}

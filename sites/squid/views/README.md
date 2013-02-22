@@ -1,0 +1,2 @@
+Copy files from /views to this folder and edit them to override the default ones.
+This folder is using the same structure as the global views, so if the file you want to override lives in a subfolder, just re-create it here.

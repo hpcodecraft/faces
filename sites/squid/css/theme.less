@@ -1,0 +1,61 @@
+// *** SQUIDFAC.ES THEME ***
+// This is the file you definitely want to edit.
+// Set your color scheme, fonts etc. here
+
+// *** COLORS ***
+@medium: #3986f9;
+@dark:   darken( @medium, 15% );
+@light:  lighten( @medium, 25% );
+@shadow: rgba(0,0,0,.5);
+@hover:  lighten( @medium, 15% );
+@background-body:  #FFF;
+@background-body-transparent: rgba(255,255,255,.6);
+
+// *** FONTS ***
+@import url(http://fonts.googleapis.com/css?family=Oleo+Script);
+.font-header{ font-family: 'Oleo Script', cursive; }
+.font-body{ font-family: Tahoma, sans-serif; }
+
+// *** BULLETS ***
+@nav-bullet-active-page:    '~';
+@nav-bullet-hover-page:     '';
+@nav-bullet-active-setting: '~';
+@nav-bullet-hover-setting:  '-';
+
+// *** ALERT POP-UP ***
+#alert {
+  width: 500px;
+  height: 373px;
+  left: 30px;
+  bottom: -373px;
+}
+
+#alerttext {
+  width: 120px;
+  height: 120px;
+  left: 400px;
+  bottom: 200px;
+}
+
+#alertlabel {
+  color: @dark;
+  position:absolute;
+  width: 100px;
+  height: 30px;
+  top: 47px;
+  left: 10px;
+  padding: 0;
+  text-align: center;
+  font-size: 22px;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+
+// *** SPECIAL STYLING ***
+// put styles here to override regular theme styles
+header .logo {
+  h1 {
+    font-weight: normal;
+  }
+}

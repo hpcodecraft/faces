@@ -1,0 +1,1 @@
+<?php if( $conf->imprint != 1) header('Location: error/404'); ?>

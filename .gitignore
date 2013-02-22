@@ -1,0 +1,5 @@
+.DS_Store
+._*
+/import/*
+/sites/*
+!/sites/squid

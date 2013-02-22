@@ -1,0 +1,62 @@
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+#AddType text/cache-manifest .appcache
+
+Header unset ETag
+FileETag none
+
+<IfModule mod_expires.c>
+
+ExpiresActive on
+ExpiresDefault "access plus 14 days"
+
+<FilesMatch "\.(js|css)$">
+ExpiresDefault "access plus 1 month"
+Header append Cache-Control "public, must-revalidate, proxy-revalidate"
+</FilesMatch>
+
+<FilesMatch "\.(gif|jpg|jpeg|png)$">
+ExpiresDefault "access plus 1 year"
+Header append Cache-Control "public, must-revalidate, proxy-revalidate"
+</FilesMatch>
+
+</IfModule>
+
+# BEGIN Gzip
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript application/json
+</IfModule>
+# END Gzip
+
+ErrorDocument 404 index.php?p=error&e=404
+
+RewriteEngine On                                                      # Turn on the rewriting engine
+
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+RewriteCond %{HTTPS} on
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+RewriteRule ^protest$          protest.php                [NC,L]      # Handle protest page
+RewriteRule ^maintenance$      maintenance.php            [NC,L]      # Handle maintenance page
+RewriteRule ^/?$               index.php?p=main           [NC,L]      # Handle main page
+RewriteRule ^([0-9]+)?$        index.php?p=single&face=$1 [NC,L]      # Handle faces
+RewriteRule ^tag/(.+)?$        index.php?p=tag&tag=$1     [NC,L]      # Handle tags
+RewriteRule ^developer?$       index.php?p=developer      [NC,L]      # Handle developer page
+RewriteRule ^imprint?$         index.php?p=imprint        [NC,L]      # Handle imprint page
+RewriteRule ^copyright?$       index.php?p=copyright      [NC,L]      # Handle copyright page
+RewriteRule ^submit?$          index.php?p=submit         [NC,L]      # Handle submission page
+RewriteRule ^changelog?$       index.php?p=changelog      [NC,L]      # Handle changelog page
+RewriteRule ^([0-9]+)/thumb?$  index.php?p=thumb&face=$1  [NC,L]      # Handle face thumbnails
+RewriteRule ^([0-9]+)/full?$   index.php?p=full&face=$1   [NC,L]      # Handle face fullsizes
+RewriteRule ^error/([0-9]+)?$  index.php?p=error&e=$1     [NC,L]      # Handle errors
+RewriteRule ^feed/rss$         index.php?p=feed&f=rss     [NC,L]      # Handle feeds
+RewriteRule ^api/(.*)/(.*)?$   index.php?p=api&$1=$2      [NC,L]      # Handle api
+RewriteRule ^ajax?$            index.php?p=ajax           [NC,L]      # Handle ajax calls
+RewriteRule ^cookie?$          index.php?p=cookie         [NC,L]      # Handle cookie
