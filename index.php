@@ -1,6 +1,7 @@
 <?php
-
-  // *fac.es dispatcher
+  // ----------------------------------------
+  // faces dispatcher
+  // ----------------------------------------
 
   require_once( 'bootstrap.php' );
 

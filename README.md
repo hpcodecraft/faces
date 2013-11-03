@@ -15,6 +15,7 @@ So be warned, it's still a bit tinkerish.
 
 ### Le database:
 1. Create an empty MySQL database.
+    `CREATE DATABASE reactionfaces DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;`
 2. Import the file **install/db.sql** into the database.
 
 ### Le files:

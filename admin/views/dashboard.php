@@ -11,7 +11,7 @@
         while ($data = array_shift( $newest )) {
           echo '
           <li>
-            <a href="'.$_CONFIG['app']['baseurl'].'/'.$data->id.'" target="_new">
+            <a href="'.$_CONFIG['baseurl'].'/'.$data->id.'" target="_new">
               <div class="thumb" style="background-image:url(../sites/'.$_CONFIG['app']['face'].'/thumbs/'.$data->thumbnail.')">
               </div>
             </a>
@@ -35,7 +35,7 @@
         while ($data = array_shift($best)) {
           echo '
           <li>
-            <a href="'.$_CONFIG['app']['baseurl'].'/'.$data->id.'"target="_new">
+            <a href="'.$_CONFIG['baseurl'].'/'.$data->id.'"target="_new">
               <div class="thumb" style="background-image:url(../sites/'.$_CONFIG['app']['face'].'/thumbs/'.$data->thumbnail.')">
               </div>
             </a>
@@ -57,7 +57,7 @@
         while ($data = array_shift($worst)) {
           echo '
           <li>
-            <a href="'.$_CONFIG['app']['baseurl'].'/'.$data->id.'"target="_new">
+            <a href="'.$_CONFIG['baseurl'].'/'.$data->id.'"target="_new">
               <div class="thumb" style="background-image:url(../sites/'.$_CONFIG['app']['face'].'/thumbs/'.$data->thumbnail.')">
               </div>
             </a>

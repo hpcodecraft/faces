@@ -8,16 +8,16 @@
 				Just add <b>/full</b> (for the full-sized image) or /<b>thumb</b> (for the thumbnail) to its URL to get it.
 			</li>
 			<li>Example:</li>
-			<li><a target="_blank" href="<?=$_CONFIG['app']['baseurl']?>/1/full"><?=$_CONFIG['app']['baseurl']?>/1/full</a></li>
-			<li><a target="_blank" href="<?=$_CONFIG['app']['baseurl']?>/1/thumb"><?=$_CONFIG['app']['baseurl']?>/1/thumb</a></li>
+			<li><a target="_blank" href="<?=$_CONFIG['baseurl']?>/1/full"><?=$_CONFIG['baseurl']?>/1/full</a></li>
+			<li><a target="_blank" href="<?=$_CONFIG['baseurl']?>/1/thumb"><?=$_CONFIG['baseurl']?>/1/thumb</a></li>
 		</ul>
 	</li>
 	<li>
 		<h2><a name="overview"></a>Overview</h2>
 			<ul>
-				<li>The API by default outputs <b>JSON</b> delivering all data about the faces stored at <?=$_CONFIG['app']['baseurl']?></li>
+				<li>The API by default outputs <b>JSON</b> delivering all data about the faces stored at <?=$_CONFIG['baseurl']?></li>
 				<li>(JSONP and XML output is also possibe, see below)</li>
-				<li>The base URL for fetching data is <b><?=$_CONFIG['app']['baseurl']?>/api/</b></li>
+				<li>The base URL for fetching data is <b><?=$_CONFIG['baseurl']?>/api/</b></li>
 			</ul>
 	</li>
 	<li>
@@ -79,9 +79,9 @@
 						<li>Compare these API-calls:</li>
 						<li>
 							<ul>
-								<li><b><?=$_CONFIG['app']['baseurl']?>/api/id/1</b>&nbsp;(will output <b>JSON</b>)&nbsp;<a href="<?=$_CONFIG['app']['baseurl']?>/api/id/1" target="_blank">see result</a></li>
-								<li><b><?=$_CONFIG['app']['baseurl']?>/api/id/1&callback=myJSONPcallback</b>&nbsp;(will output <b>JSONP</b>)&nbsp;<a href="<?=$_CONFIG['app']['baseurl']?>/api/id/1&callback=myJSONPcallback" target="_blank">see result</a></li>
-								<li><b><?=$_CONFIG['app']['baseurl']?>/api/id/1&out=xml</b>&nbsp;(will output <b>XML</b>)&nbsp;<a href="<?=$_CONFIG['app']['baseurl']?>/api/id/1&out=xml" target="_blank">see result</a></li>
+								<li><b><?=$_CONFIG['baseurl']?>/api/id/1</b>&nbsp;(will output <b>JSON</b>)&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/id/1" target="_blank">see result</a></li>
+								<li><b><?=$_CONFIG['baseurl']?>/api/id/1&callback=myJSONPcallback</b>&nbsp;(will output <b>JSONP</b>)&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/id/1&callback=myJSONPcallback" target="_blank">see result</a></li>
+								<li><b><?=$_CONFIG['baseurl']?>/api/id/1&out=xml</b>&nbsp;(will output <b>XML</b>)&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/id/1&out=xml" target="_blank">see result</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -134,9 +134,9 @@
 			<ul>
 				<li>
 					<h3 id="example1">Example 1</h3>
-					Requested URL: <b><a href="<?=$_CONFIG['app']['baseurl']?>/api/id/1"><?=$_CONFIG['app']['baseurl']?>/api/id/1</a></b>
-					&nbsp;<a href="<?=$_CONFIG['app']['baseurl']?>/api/id/1&callback=myJSONPcallback" target="_blank">JSONP</a>
-					&nbsp;<a href="<?=$_CONFIG['app']['baseurl']?>/api/id/1&out=xml" target="_blank">XML</a><br/>
+					Requested URL: <b><a href="<?=$_CONFIG['baseurl']?>/api/id/1"><?=$_CONFIG['baseurl']?>/api/id/1</a></b>
+					&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/id/1&callback=myJSONPcallback" target="_blank">JSONP</a>
+					&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/id/1&out=xml" target="_blank">XML</a><br/>
 					JSON-response:
 					<pre>{
   "unix_date":1311462196,
@@ -159,9 +159,9 @@
 
 				<li>
 					<h3 id="example2">Example 2</h3>
-					Requested URL: <b><a href="<?=$_CONFIG['app']['baseurl']?>/api/id/23,42"><?=$_CONFIG['app']['baseurl']?>/api/id/23,42</a></b>
-					&nbsp;<a href="<?=$_CONFIG['app']['baseurl']?>/api/id/23,42&callback=myJSONPcallback" target="_blank">JSONP</a>
-					&nbsp;<a href="<?=$_CONFIG['app']['baseurl']?>/api/id/23,42&out=xml" target="_blank">XML</a><br/>
+					Requested URL: <b><a href="<?=$_CONFIG['baseurl']?>/api/id/23,42"><?=$_CONFIG['baseurl']?>/api/id/23,42</a></b>
+					&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/id/23,42&callback=myJSONPcallback" target="_blank">JSONP</a>
+					&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/id/23,42&out=xml" target="_blank">XML</a><br/>
 					JSON-response:
 					<pre>{
   "unix_date":1311462567,
@@ -194,9 +194,9 @@
 
 				<li>
 					<h3 id="example3">Example 3</h3>
-					Requested URL: <b><a href="<?=$_CONFIG['app']['baseurl']?>/api/tag/happy"><?=$_CONFIG['app']['baseurl']?>/api/tag/happy</a></b>
-					&nbsp;<a href="<?=$_CONFIG['app']['baseurl']?>/api/tag/happy&callback=myJSONPcallback" target="_blank">JSONP</a>
-					&nbsp;<a href="<?=$_CONFIG['app']['baseurl']?>/api/tag/happy&out=xml" target="_blank">XML</a><br/>
+					Requested URL: <b><a href="<?=$_CONFIG['baseurl']?>/api/tag/happy"><?=$_CONFIG['baseurl']?>/api/tag/happy</a></b>
+					&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/tag/happy&callback=myJSONPcallback" target="_blank">JSONP</a>
+					&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/tag/happy&out=xml" target="_blank">XML</a><br/>
 					JSON-response:
 					<pre>{
   "unix_date":1311463199,
@@ -239,9 +239,9 @@
 
 				<li>
 					<h3 id="example4">Example 4</h3>
-					Requested URL: <b><a href="<?=$_CONFIG['app']['baseurl']?>/api/cat/fluttershy"><?=$_CONFIG['app']['baseurl']?>/api/cat/fluttershy</a></b>
-					&nbsp;<a href="<?=$_CONFIG['app']['baseurl']?>/api/cat/fluttershy&callback=myJSONPcallback" target="_blank">JSONP</a>
-					&nbsp;<a href="<?=$_CONFIG['app']['baseurl']?>/api/cat/fluttershy&out=xml" target="_blank">XML</a><br/>
+					Requested URL: <b><a href="<?=$_CONFIG['baseurl']?>/api/cat/fluttershy"><?=$_CONFIG['baseurl']?>/api/cat/fluttershy</a></b>
+					&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/cat/fluttershy&callback=myJSONPcallback" target="_blank">JSONP</a>
+					&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/cat/fluttershy&out=xml" target="_blank">XML</a><br/>
 					JSON-response:
 					<pre>{
   "unix_date":1311464018,
@@ -274,9 +274,9 @@
 
 	<li>
 		<h3 id="example5">Example 5</h3>
-		Requested URL: <b><a href="<?=$_CONFIG['app']['baseurl']?>/api/all/cats"><?=$_CONFIG['app']['baseurl']?>/api/all/cats</a></b>
-		&nbsp;<a href="<?=$_CONFIG['app']['baseurl']?>/api/all/cats&callback=myJSONPcallback" target="_blank">JSONP</a>
-		&nbsp;<a href="<?=$_CONFIG['app']['baseurl']?>/api/all/cats&out=xml" target="_blank">XML</a><br/>
+		Requested URL: <b><a href="<?=$_CONFIG['baseurl']?>/api/all/cats"><?=$_CONFIG['baseurl']?>/api/all/cats</a></b>
+		&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/all/cats&callback=myJSONPcallback" target="_blank">JSONP</a>
+		&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/all/cats&out=xml" target="_blank">XML</a><br/>
 		JSON-response:
 		<pre>{
   "unix_date":1311612197,
@@ -311,9 +311,9 @@
 
 	<li>
 		<h3 id="example6">Example 6</h3>
-		Requested URL: <b><a href="<?=$_CONFIG['app']['baseurl']?>/api/all/tags"><?=$_CONFIG['app']['baseurl']?>/api/all/tags</a></b>
-		&nbsp;<a href="<?=$_CONFIG['app']['baseurl']?>/api/all/tags&callback=myJSONPcallback" target="_blank">JSONP</a>
-		&nbsp;<a href="<?=$_CONFIG['app']['baseurl']?>/api/all/tags&out=xml" target="_blank">XML</a><br/>
+		Requested URL: <b><a href="<?=$_CONFIG['baseurl']?>/api/all/tags"><?=$_CONFIG['baseurl']?>/api/all/tags</a></b>
+		&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/all/tags&callback=myJSONPcallback" target="_blank">JSONP</a>
+		&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/all/tags&out=xml" target="_blank">XML</a><br/>
 		JSON-response:
 		<pre>{
   "unix_date":1311612476,

@@ -6,7 +6,7 @@
 
   <?php
     foreach( $f->tags as &$tag ) {
-      $tag = '<a href="'.$_CONFIG['app']['baseurl'].'/tag/'.$tag.'">'.$tag.'</a>';
+      $tag = '<a href="'.$_CONFIG['baseurl'].'/tag/'.$tag.'">'.$tag.'</a>';
     }
   ?>
   <p class="tags">
@@ -22,19 +22,19 @@
   <ul class="embed">
     <li>
       <label>short URL</label>
-      <input type="text" value="<?=$_CONFIG['app']['baseurl']?>/<?=$f->id?>" title="<?=$_CONFIG['app']['baseurl']?>/<?=$f->id?>" readonly>
+      <input type="text" value="<?=$_CONFIG['baseurl']?>/<?=$f->id?>" title="<?=$_CONFIG['baseurl']?>/<?=$f->id?>" readonly>
     </li>
     <li>
       <label>BBCode</label>
-      <input type="text" value="[url=<?=$_CONFIG['app']['baseurl']?>/<?=$f->id?>][img]<?=$_CONFIG['app']['baseurl']?>/<?=$f->id?>/thumb[/img][/url]" title="[url=<?=$_CONFIG['app']['baseurl']?>/<?=$f->id?>][img]<?=$_CONFIG['app']['baseurl']?>/<?=$f->id?>/thumb[/img][/url]" readonly>
+      <input type="text" value="[url=<?=$_CONFIG['baseurl']?>/<?=$f->id?>][img]<?=$_CONFIG['baseurl']?>/<?=$f->id?>/thumb[/img][/url]" title="[url=<?=$_CONFIG['baseurl']?>/<?=$f->id?>][img]<?=$_CONFIG['baseurl']?>/<?=$f->id?>/thumb[/img][/url]" readonly>
     </li>
     <li>
       <label>HTML</label>
-      <input type="text" value='<a href="<?=$_CONFIG['app']['baseurl']?>/<?=$f->id?>" target="_blank"><img src="<?=$_CONFIG['app']['baseurl']?>/<?=$f->id?>/thumb"/></a>' title='<a href="<?=$_CONFIG['app']['baseurl']?>/<?=$f->id?>" target="_blank"><img src="<?=$_CONFIG['app']['baseurl']?>/<?=$f->id?>/thumb"/></a>' readonly>
+      <input type="text" value='<a href="<?=$_CONFIG['baseurl']?>/<?=$f->id?>" target="_blank"><img src="<?=$_CONFIG['baseurl']?>/<?=$f->id?>/thumb"/></a>' title='<a href="<?=$_CONFIG['baseurl']?>/<?=$f->id?>" target="_blank"><img src="<?=$_CONFIG['baseurl']?>/<?=$f->id?>/thumb"/></a>' readonly>
     </li>
     <li>
       <label>Image URL</label>
-      <input type="text" value="<?=$_CONFIG['app']['baseurl']?>/<?=$f->id?>/full" title="<?=$_CONFIG['app']['baseurl']?>/sites/<?=$_CONFIG['app']['face']?>/faces/<?=$f->file?>" readonly>
+      <input type="text" value="<?=$_CONFIG['baseurl']?>/<?=$f->id?>/full" title="<?=$_CONFIG['baseurl']?>/sites/<?=$_CONFIG['app']['face']?>/faces/<?=$f->file?>" readonly>
     </li>
   </ul>
 </div>

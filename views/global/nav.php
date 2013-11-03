@@ -82,13 +82,6 @@
       </li>
     </ul>
     <?php endif; ?>
-
-    <ul class="extra">
-      <li>
-        <a href="http://squidpeople.com/bookmarklets/instaface" target="_blank">Get the Bookmarklet!</a>
-      </li>
-
-    </ul>
   </nav>
 
 <?php endif; ?>

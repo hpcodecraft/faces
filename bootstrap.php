@@ -1,48 +1,16 @@
 <?php
-
-  // *fac.es bootstrap script
-
-  $localname = 'localhost:8888';
-  $lanname = '192.168.0.100:8888';
-  $localaddr = '::1';
-
-  define( 'webroot', dirname( __FILE__ ));
+  // ----------------------------------------
+  // faces bootstrap script
+  // ----------------------------------------
 
   // scan the sites folder for installed sites
   // ignores hidden files, so sites can be disabled by
   // prepending a . to their folder
-  $sites = array_values( preg_grep('/^([^.])/', scandir(webroot.'/sites')));
+  $sites = array_values( preg_grep('/^([^.])/', scandir('sites')));
 
   // determine which config to load
-
-  // localhost
-  if( $_SERVER['HTTP_HOST'] == $localname or $_SERVER['HTTP_HOST'] == $lanname or $_SERVER['SERVER_ADDR'] == $localaddr ) {
-
-    // determine which site to load
-
-    // site switcher was used
-    if( isset( $_POST['_SITE'] )) {
-      $_SITE = $_POST['_SITE'];
-      setcookie('site', $_POST['_SITE'], time()+60*60*24*30);
-    }
-    else if( isset( $_COOKIE['site'] )) {
-      $_SITE = $_COOKIE['site'];
-    }
-    else {
-      $_SITE = 'squid'; //$sites[0];
-    }
-
-    // load site config
-    require_once( webroot.'/sites/'.$_SITE.'/config-'.$_SITE.'.php' );
-
-    //$_CONFIG['app']['baseurl'] = 'http://'.$lanname.'/Web/fac.es';
-  }
-
-  // not localhost
-  else {
-    $_SITE = trim( substr($_SERVER['SERVER_NAME'], 0, -6), 'm.' );
-    require_once( 'sites/'.$_SITE.'/config-'.$_SITE.'.php' );
-  }
+  $_SITE = $_SERVER['SERVER_NAME'];
+  require_once( 'config/'.$_SITE.'.php' );
 
   // autoloader
   class Loader {
@@ -97,7 +65,7 @@
       if( $d != 'admin' and !$hasOverride ) {
         if( (int)$conf->protest === 1 ) $jumpTo = 'protest';
         if( (int)$conf->maintenance === 1 ) $jumpTo = 'maintenance';
-        header('location: '.$_CONFIG['app']['baseurl'].'/'.$jumpTo );
+        header('location: '.$_CONFIG['baseurl'].'/'.$jumpTo );
       }
     }
   }

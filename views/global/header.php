@@ -5,7 +5,7 @@
       'title'       => $_CONFIG['app']['domain'].' / '.$f->id.' / '.implode(', ', $f->tags),
       'description' => 'Collection of '.$_CONFIG['app']['face'].'faces. For instant messaging, imageboards, twitter, text messages, SMS, etc.',
       'keywords'    => $_CONFIG['app']['face'].' faces, '.$_CONFIG['app']['face'].'faces, '.$_CONFIG['app']['face'].'face, face, '.$_CONFIG['app']['face'].', gallery, collection, list, source, sms, '.implode(', ', $f->tags),
-      'image'       => $_CONFIG['app']['baseurl'].'/'.$f->id.'/thumb',
+      'image'       => $_CONFIG['baseurl'].'/'.$f->id.'/thumb',
     );
   }
   else {
@@ -13,7 +13,7 @@
       'title'       => $_CONFIG['app']['domain'].' - say it with a '.$_CONFIG['app']['face'],
       'description' => 'Collection of '.$_CONFIG['app']['face'].'faces. For instant messaging, imageboards, twitter, text messages, SMS, etc.',
       'keywords'    => $_CONFIG['app']['face'].' faces, '.$_CONFIG['app']['face'].'faces, '.$_CONFIG['app']['face'].'face, face, '.$_CONFIG['app']['face'].', gallery, collection, list, source, sms, twitter, facebook',
-      'image'       => $_CONFIG['app']['baseurl'].'/sites/'.$_CONFIG['app']['face'].'/gfx/favicon.png',
+      'image'       => $_CONFIG['baseurl'].'/sites/'.$_CONFIG['app']['face'].'/gfx/favicon.png',
     );
   }
 

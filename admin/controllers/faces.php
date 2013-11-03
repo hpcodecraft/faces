@@ -28,12 +28,12 @@
     $rss->setMeta(
       $_CONFIG['app']['domain'], // title
       $_CONFIG['app']['domain'].' - '.'say it with a '.$_CONFIG['app']['face'], // description
-      $_CONFIG['app']['baseurl'] // link
+      $_CONFIG['baseurl'] // link
     );
 
     $rss->setLogo(
       $_CONFIG['app']['domain'].' - '.'say it with a '.$_CONFIG['app']['face'], //title
-      $_CONFIG['app']['baseurl'].'/sites/'.$_CONFIG['app']['face'].'/gfx/feedicon.png', // src
+      $_CONFIG['baseurl'].'/sites/'.$_CONFIG['app']['face'].'/gfx/feedicon.png', // src
       $_CONFIG['app']['domain'] // link
     );
 
@@ -44,10 +44,10 @@
 
       $f         = new Face( $data['id'] );
       $title     = $_CONFIG['app']['domain'].'/'.$data['id'];
-      $link      = $_CONFIG['app']['baseurl'].'/'.$f->id;
+      $link      = $_CONFIG['baseurl'].'/'.$f->id;
       $date      = utf8_encode(date("D, j M Y H:i:s ".'GMT', $f->added ));
-      $guid      = $_CONFIG['app']['baseurl'].'/'.$f->id;
-      $enclosure = $_CONFIG['app']['baseurl'].'/sites/'.$_CONFIG['app']['face'].'/faces/'.$f->file;
+      $guid      = $_CONFIG['baseurl'].'/'.$f->id;
+      $enclosure = $_CONFIG['baseurl'].'/sites/'.$_CONFIG['app']['face'].'/faces/'.$f->file;
       $length    = filesize( '../sites/'.$_CONFIG['app']['face'].'/faces/'.$f->file );
 
       $body      = '&lt;p&gt;&lt;img src=&quot;'.htmlentities($enclosure).'&quot; alt=&quot;'.$link.'&quot; width=&quot;'.$width.'&quot; /&gt;&lt;/p&gt;';

@@ -1,4 +1,4 @@
-<img src="<?=$_CONFIG['app']['baseurl']?>/sites/<?=$_CONFIG['app']['face']?>/gfx/protest/acta.png"/>
+<img src="<?=$_CONFIG['baseurl']?>/sites/<?=$_CONFIG['app']['face']?>/gfx/protest/acta.png"/>
 <br/>
 This site is closed on February 11th to support the protest against
 <a href="http://en.wikipedia.org/wiki/ACTA" target="_blank">ACTA</a><br/><br/>

@@ -76,7 +76,7 @@
             $from = '"tags@'.$_CONFIG['app']['domain'].'" <tags@'.$_CONFIG['app']['domain'].'>';
             $subject = $_CONFIG['app']['domain'].' - new face tag';
             $message = 'a new face tag has been added at '.$_CONFIG['app']['domain'].'<br/>
-  login at <a href="'.$_CONFIG['app']['baseurl'].'/admin/faces">'.$_CONFIG['app']['baseurl'].'/admin/faces</a> to review it.';
+  login at <a href="'.$_CONFIG['baseurl'].'/admin/faces">'.$_CONFIG['baseurl'].'/admin/faces</a> to review it.';
 
             $mail = new Email( $from, $_CONFIG['app']['notificationsTo'], $subject, $message );
             $mail->send();

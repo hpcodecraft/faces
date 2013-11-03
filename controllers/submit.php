@@ -32,7 +32,7 @@
               $from = '"submission@'.$_CONFIG['app']['domain'].'" <submission@'.$_CONFIG['app']['domain'].'>';
               $subject = $_CONFIG['app']['domain'].' - new face submission';
               $message = 'a new face has been submitted at '.$_CONFIG['app']['domain'].'<br/>
-  login at <a href="'.$_CONFIG['app']['baseurl'].'/admin/import">'.$_CONFIG['app']['baseurl'].'/admin/import</a> to review it.';
+  login at <a href="'.$_CONFIG['baseurl'].'/admin/import">'.$_CONFIG['baseurl'].'/admin/import</a> to review it.';
 
               $mail = new Email( $from, $_CONFIG['app']['notificationsTo'], $subject, $message );
               $mail->send();

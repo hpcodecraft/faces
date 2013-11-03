@@ -9,24 +9,6 @@
   <footer>
     <ul>
       <li>
-        <a href="<?=$root?>/feed/rss" target="_blank">
-          <img src="http://a.squidpeople.com/rss.png" />rss feed
-        </a>
-      </li>
-      <li>
-        <a href="<?=$root?>/changelog">
-          <img src="http://a.squidpeople.com/changelog.png" />changelog
-        </a>
-      </li>
-      <li>
-        <a href="http://squidpeople.com" target="_blank">
-          <img src="http://a.squidpeople.com/squid-20x20.png"/>squidpeople
-        </a>
-      </li>
-    </ul>
-
-    <ul>
-      <li>
         <b><?=number_format( $stats['total_views'], 0, ',', '.')?> <?=$_CONFIG['app']['faces']?> viewed</b>
       </li>
       <li>
@@ -35,44 +17,12 @@
       <?php if( isset( $_CONFIG['app']['flattr'] ) and strlen( $_CONFIG['app']['flattr'] ) > 0 ): ?>
       <li>&nbsp;</li>
       <li>
-        <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="<?=$_CONFIG['app']['baseurl']?>"></a>
+        <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="<?=$_CONFIG['baseurl']?>"></a>
         <noscript><a href="<?=$_CONFIG['app']['flattr']?>" target="_blank">
         <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
       </li>
       <?php endif; ?>
     </ul>
-
-    <ul>
-  		<li>
-  			<b>more faces</b>
-  		</li>
-  		<?php
-  			foreach( $_CONFIG['sites'] as $id => $url ) {
-  			if( $id == $_CONFIG['app']['face'] ) continue;
-        $lbl = substr($url, 7);
-  			echo '<li> → <a href="'.$url.'" target="_blank">'.$lbl.'</a></li>';
-  			}
-  		?>
-    </ul>
-
-  	<ul>
-      <li>
-        <b>legal</b>
-      </li>
-      <?php if( $conf->imprint == 1 ) : ?>
-  		<li>
-  			→ <a href="<?=$root?>/imprint">imprint</a>
-  		</li>
-      <?php endif; ?>
-  		<li>
-  			→ <a href="<?=$root?>/copyright">copyright</a>
-  		</li>
-  	</ul>
-
-  	<?php require( 'sites/'.$_CONFIG['app']['face'].'/footer-'.$_CONFIG['app']['face'].'.php' ); ?>
-
-
-
   </footer>
 
   <!-- JS -->
