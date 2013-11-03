@@ -49,10 +49,6 @@
   </script>
   <?php endif; ?>
 
-  <?php if( $conf->{'developer mode'} == 1 ): ?>
-  <script>less.watch();</script>
-  <?php endif; ?>
-
   <?php if( isset( $_CONFIG['app']['flattr'] ) and strlen( $_CONFIG['app']['flattr'] ) > 0 ): ?>
   <script>
       (function() {

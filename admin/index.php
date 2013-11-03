@@ -22,13 +22,13 @@
     require_once( $controllerfile );
   }
 
-  require_once( 'views/global/header.php' );
-  require_once( '../views/global/scroller.php' );
+  require_once( 'views/partials/header.php' );
+  require_once( '../views/partials/scroller.php' );
 
   $viewfile = 'views/'.$_page.'.php';
   if( file_exists( $viewfile )) {
     require_once( $viewfile );
   }
 
-  require_once( 'views/global/footer.php' );
+  require_once( 'views/partials/footer.php' );
 ?>

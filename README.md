@@ -51,8 +51,6 @@ to
 
 **sites/yourname/css/min/app-min.css** and **sites/yourname/css/min/admin-min.css**
 
-*Hint:* You can switch on developer mode in the admin frontend. This will enable live preview of your style changes without having to recompile every time. Styling will be a lot easier and you'll only have to compile once after you're finished. However, you should not do this on a live system!
-
 ### Templates
 Templates in the **views** folder can be overridden by creating a file with the same name in **sites/yourname/views**.
 

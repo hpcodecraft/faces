@@ -71,7 +71,6 @@ CREATE TABLE `tag_suggestions` (
 
 INSERT INTO `categories` VALUES(1, 'other', 1);
 INSERT INTO `settings` VALUES('submissions', '1', 1, 'Check if users should be able to submit faces to your site.');
-INSERT INTO `settings` VALUES('developer mode', '0', 1, 'Developer mode enables watch mode for the .less stylesheets and lets your switch instantly between sites on a multi-site installation.<br>Note: For God''s sake, DO NOT enable this in a production environment!!1');
 INSERT INTO `settings` VALUES('maintenance', '0', 1, 'Enables maintenance mode. All access to the site will be blocked (except the administration tools, of course)');
 INSERT INTO `settings` VALUES('protest', '0', 1, 'Enables protest mode. All access to the site will be blocked. You can create additional protest pages in /views/protest');
 INSERT INTO `settings` VALUES('protest type', 'acta', 0, '');

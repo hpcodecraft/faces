@@ -28,13 +28,7 @@
   <meta property="og:title" content="<?=$_CONFIG['app']['domain']?> - say it with a <?=$_CONFIG['app']['face']?>">
   <meta property="og:image" content="<?=$meta['image']?>">
 
-  <?php if( $conf->{'developer mode'} == 1 ): ?>
-  <link rel="stylesheet/less" type="text/css" href="<?=$root?>/sites/<?=$_CONFIG['app']['face']?>/css/app-min.less">
-  <script src="<?=$root?>/js/lib/less-1.3.3.min.js"></script>
-  <?php else: ?>
   <link rel="stylesheet" href="<?=$root?>/sites/<?=$_CONFIG['app']['face']?>/css/min/app-min.css">
-  <?php endif; ?>
-
   <link rel="shortcut icon" href="<?=$root?>/sites/<?=$_CONFIG['app']['face']?>/gfx/favicon.png">
   <link rel="alternate" type="application/rss+xml" href="<?=$root?>/feed/rss" title="<?=$_CONFIG['app']['face']?>feed">
 </head>
@@ -47,18 +41,5 @@
       <div id="message"></div>
       <?php elseif( $view == 'main' ): ?>
       <input id="face-url" value="choose a <?=$_CONFIG['app']['face']?>" readonly />
-      <?php endif; ?>
-
-      <?php if( $conf->{'developer mode'} == 1 ): ?>
-        <div style="position: absolute; top: .5em; right: 1em;">
-          <form action="<?=$root?>/" method="post">
-            <select name="_SITE">
-              <?php foreach( $sites as $s ): ?>
-              <option value="<?=$s?>" <?=($_SITE==$s)?'selected':''?>><?=$s?></option>
-              <?php endforeach; ?>
-            </select>
-            <button type="submit">▶</button>
-          </form>
-        </div>
       <?php endif; ?>
     </header>

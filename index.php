@@ -21,13 +21,13 @@
   if( $view == 'tag' or $view == 'error' ) $root = '..';
 
   // include templates
-  require_once getView( 'global/header' );
+  require_once getView( 'partials/header' );
 
   if( !( $view == 'single' or $view == 'error' )) {
-    require_once getView( 'global/nav' );
+    require_once getView( 'partials/nav' );
   }
 
-  require_once getView( 'global/scroller' );
+  require_once getView( 'partials/scroller' );
   require_once getView( $view );
-  require_once getView( 'global/footer' );
+  require_once getView( 'partials/footer' );
 ?>
