@@ -34,7 +34,7 @@
     </li>
     <li>
       <label>Image URL</label>
-      <input type="text" value="<?=$_CONFIG['baseurl']?>/<?=$f->id?>/full" title="<?=$_CONFIG['baseurl']?>/sites/<?=$_CONFIG['app']['face']?>/faces/<?=$f->file?>" readonly>
+      <input type="text" value="<?=$_CONFIG['baseurl']?>/<?=$f->id?>/full" title="<?=$_CONFIG['baseurl']?>/<?=$f->id?>/full" readonly>
     </li>
   </ul>
 </div>

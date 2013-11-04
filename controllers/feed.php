@@ -4,7 +4,7 @@
   switch( $f ) {
     case 'rss':
       header ('Content-Type:text/xml');
-      readfile('sites/'.$_CONFIG['app']['face'].'/feed/rss.xml');
+      readfile('content/feed/rss.xml');
       break;
     default:
       die;

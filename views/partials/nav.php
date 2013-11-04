@@ -21,7 +21,7 @@
 
       <?php if( $conf->submissions == 1 ) : ?>
       <li>
-        <a class="page<?=($view=='submit')?' active':''?>" href="<?=$root?>/submit">Submit a <?=$_CONFIG['app']['face']?></a>
+        <a class="page<?=($view=='submit')?' active':''?>" href="<?=$root?>/submit">Submit a <?=t('face-singular')?></a>
       </li>
       <?php endif; ?>
     </ul>
@@ -36,7 +36,7 @@
       <div class="spacer">&nbsp;</div>
 
       <?php if( count( $_CONFIG['category'] ) > 2 ): ?>
-      <h4 class="category"><?=$_CONFIG['app']['face']?></h4>
+      <h4 class="category"><?=t('face-singular')?></h4>
       <ul class="category">
         <?php
           foreach( $_CONFIG['category'] as $c ) {

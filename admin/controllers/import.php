@@ -4,8 +4,8 @@
   $allowed = array('jpg','gif','png','jpeg');
 
   $path     = '../import';
-  $dest     = '../sites/'.$_CONFIG['app']['face'].'/faces';
-  $thumbDir = '../sites/'.$_CONFIG['app']['face'].'/thumbs';
+  $dest     = '../content/faces';
+  $thumbDir = '../content/thumbs';
 
   $dir = new DirectoryIterator($path);
   foreach( $dir as $m ) {
@@ -67,7 +67,7 @@
 
           // create thumbnails
           $fi = new Image( $dest.'/'.$f['hash'].'.'.$f['type'] );
-          foreach( $_CONFIG['app']['thumbsizes'] as $thumbsize ) {
+          foreach( $_CONFIG['thumbsizes'] as $thumbsize ) {
             $fi->createThumbnail( $thumbsize, $thumbDir );
           }
 

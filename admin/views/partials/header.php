@@ -2,15 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title><?=$_CONFIG['app']['domain']?> - <?=$_page?></title>
-    <link rel="stylesheet" href="../sites/<?=$_CONFIG['app']['face']?>/css/min/admin-min.css"/>
-    <link rel="shortcut icon" href="../sites/<?=$_CONFIG['app']['face']?>/gfx/favicon.png"/>
+    <title><?=t('site-name').' - '.$_page?></title>
+    <link rel="stylesheet" href="<?=a('css/min/admin-min.css')?>"/>
+    <link rel="shortcut icon" href="<?=a('gfx/favicon.png')?>"/>
   </head>
 
   <body>
     <header>
       <a class="logo" href="<?=$root?>/">
-        <h1><?=$_CONFIG['app']['domain']?> - <?=$_page?></h1>
+        <h1><?=t('site-name').' - '.$_page?></h1>
       </a>
       <div id="message" class="message"><?=$_page_msg?></div>
 

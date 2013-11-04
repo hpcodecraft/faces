@@ -1,7 +1,7 @@
-<img id="alert" src="<?=$root?>/sites/<?=$_CONFIG['app']['face']?>/gfx/alert.png"/>
+<img id="alert" src="<?=a('gfx/alert.png')?>"/>
 <div id="alerttext">
-  <img src="<?=$root?>/sites/<?=$_CONFIG['app']['face']?>/gfx/alertbubble.png"/>
-  <div id="alertlabel"></div>
+  <img src="<?=a('gfx/alertbubble.png')?>"/>
+  <div id="alertlabel"><?=$copytext?></div>
 </div>
 
 <h1>faces tagged "<?=$_GET['tag']?>"</h1>

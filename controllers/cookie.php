@@ -1,5 +1,5 @@
 <?php
-	$cookie = new Cookie($_CONFIG['app']['cookie']);
+	$cookie = new Cookie($_CONFIG['cookie']);
 	$cookie->load();
 
 	// set order

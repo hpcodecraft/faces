@@ -2,18 +2,18 @@
 
   if( $view == 'single' ) {
     $meta = array(
-      'title'       => $_CONFIG['app']['domain'].' / '.$f->id.' / '.implode(', ', $f->tags),
-      'description' => 'Collection of '.$_CONFIG['app']['face'].'faces. For instant messaging, imageboards, twitter, text messages, SMS, etc.',
-      'keywords'    => $_CONFIG['app']['face'].' faces, '.$_CONFIG['app']['face'].'faces, '.$_CONFIG['app']['face'].'face, face, '.$_CONFIG['app']['face'].', gallery, collection, list, source, sms, '.implode(', ', $f->tags),
+      'title'       => t('site-name').' / '.$f->id.' / '.implode(', ', $f->tags),
+      'description' => t('site-description'),
+      'keywords'    => t('site-keywords').', '.implode(', ', $f->tags),
       'image'       => $_CONFIG['baseurl'].'/'.$f->id.'/thumb',
     );
   }
   else {
     $meta = array(
-      'title'       => $_CONFIG['app']['domain'].' - say it with a '.$_CONFIG['app']['face'],
-      'description' => 'Collection of '.$_CONFIG['app']['face'].'faces. For instant messaging, imageboards, twitter, text messages, SMS, etc.',
-      'keywords'    => $_CONFIG['app']['face'].' faces, '.$_CONFIG['app']['face'].'faces, '.$_CONFIG['app']['face'].'face, face, '.$_CONFIG['app']['face'].', gallery, collection, list, source, sms, twitter, facebook',
-      'image'       => $_CONFIG['baseurl'].'/sites/'.$_CONFIG['app']['face'].'/gfx/favicon.png',
+      'title'       => t('site-title'),
+      'description' => t('site-description'),
+      'keywords'    => t('site-keywords'),
+      'image'       => a('gfx/favicon.png'),
     );
   }
 
@@ -25,21 +25,21 @@
   <title><?=$meta['title']?></title>
   <meta name="description" content="<?=$meta['description']?>">
   <meta name="keywords" content="<?=$meta['keywords']?>">
-  <meta property="og:title" content="<?=$_CONFIG['app']['domain']?> - say it with a <?=$_CONFIG['app']['face']?>">
+  <meta property="og:title" content="<?=$meta['title']?>">
   <meta property="og:image" content="<?=$meta['image']?>">
 
-  <link rel="stylesheet" href="<?=$root?>/sites/<?=$_CONFIG['app']['face']?>/css/min/app-min.css">
-  <link rel="shortcut icon" href="<?=$root?>/sites/<?=$_CONFIG['app']['face']?>/gfx/favicon.png">
-  <link rel="alternate" type="application/rss+xml" href="<?=$root?>/feed/rss" title="<?=$_CONFIG['app']['face']?>feed">
+  <link rel="stylesheet" href="<?=a('css/min/app-min.css')?>">
+  <link rel="shortcut icon" href="<?=a('gfx/favicon.png')?>">
+  <link rel="alternate" type="application/rss+xml" href="<?=$_CONFIG['baseurl']?>/feed/rss" title="<?=t('site-title')?>">
 </head>
 
 <body>
   <div class="wrapper <?=$view?>">
     <header class="<?=$view?>">
-      <a class="logo" href="<?=$root?>/"><h1><?=$_CONFIG['app']['domain']?></h1></a>
+      <a class="logo" href="<?=$_CONFIG['baseurl']?>"><h1><?=t('site-name')?></h1></a>
       <?php if( $view == 'single' or $view == 'error' ): ?>
       <div id="message"></div>
       <?php elseif( $view == 'main' ): ?>
-      <input id="face-url" value="choose a <?=$_CONFIG['app']['face']?>" readonly />
+      <input id="face-url" value="choose a <?=t('face-singular')?>" readonly />
       <?php endif; ?>
     </header>

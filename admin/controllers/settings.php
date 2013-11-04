@@ -32,8 +32,8 @@
   }
 
   // thumbnail stuff
-  $faceDir  = '../sites/'.$_CONFIG['app']['face'].'/faces';
-  $thumbDir = '../sites/'.$_CONFIG['app']['face'].'/thumbs';
+  $faceDir  = '../content/faces';
+  $thumbDir = '../content/thumbs';
 
   $faces  = array_diff( scandir( $faceDir ), $skip );
   $thumbs = array_diff( scandir( $thumbDir ), $skip );
@@ -44,7 +44,7 @@
     if( $_POST['thumb'] == 'all' ) {
       foreach( $faces as $face ) {
         $fi = new Image( $faceDir.'/'.$face );
-        foreach( $_CONFIG['app']['thumbsizes'] as $thumbsize ) {
+        foreach( $_CONFIG['thumbsizes'] as $thumbsize ) {
           $fi->createThumbnail( $thumbsize, $thumbDir );
         }
       }

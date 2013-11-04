@@ -9,16 +9,16 @@
   <footer>
     <ul>
       <li>
-        <b><?=number_format( $stats['total_views'], 0, ',', '.')?> <?=$_CONFIG['app']['faces']?> viewed</b>
+        <b><?=number_format( $stats['total_views'], 0, ',', '.').' '.t('face-plural')?> viewed</b>
       </li>
       <li>
-        <b><?=$stats['total_faces']?> <?=$_CONFIG['app']['faces']?> stored</b>
+        <b><?=$stats['total_faces'].' '.t('face-plural')?> stored</b>
       </li>
-      <?php if( isset( $_CONFIG['app']['flattr'] ) and strlen( $_CONFIG['app']['flattr'] ) > 0 ): ?>
+      <?php if( isset( $_CONFIG['flattr'] ) and strlen( $_CONFIG['flattr'] ) > 0 ): ?>
       <li>&nbsp;</li>
       <li>
         <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="<?=$_CONFIG['baseurl']?>"></a>
-        <noscript><a href="<?=$_CONFIG['app']['flattr']?>" target="_blank">
+        <noscript><a href="<?=$_CONFIG['flattr']?>" target="_blank">
         <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
       </li>
       <?php endif; ?>
@@ -28,10 +28,10 @@
   <!-- JS -->
   <script src="<?=$root?>/js/min/app-min.js"></script>
 
-  <?php if( isset($_COOKIE[ $_CONFIG['app']['cookie'] ] )): ?>
+  <?php if( isset($_COOKIE[ $_CONFIG['cookie'] ] )): ?>
 
   <script>
-    var cookie = <?=stripslashes( $_COOKIE[ $_CONFIG['app']['cookie'] ] )?>;
+    var cookie = <?=stripslashes( $_COOKIE[ $_CONFIG['cookie'] ] )?>;
   </script>
 
   <?php endif; ?>
@@ -49,7 +49,7 @@
   </script>
   <?php endif; ?>
 
-  <?php if( isset( $_CONFIG['app']['flattr'] ) and strlen( $_CONFIG['app']['flattr'] ) > 0 ): ?>
+  <?php if( isset( $_CONFIG['flattr'] ) and strlen( $_CONFIG['flattr'] ) > 0 ): ?>
   <script>
       (function() {
   	var s = document.createElement("script"), t = document.getElementsByTagName("script")[0];
@@ -61,10 +61,10 @@
   </script>
   <?php endif; ?>
 
-  <?php if( isset( $_CONFIG['app']['analytics'] ) and strlen( $_CONFIG['app']['analytics'] ) > 0 ): ?>
+  <?php if( isset( $_CONFIG['analytics'] ) and strlen( $_CONFIG['analytics'] ) > 0 ): ?>
   <script>
       var _gaq = _gaq || [];
-      _gaq.push(["_setAccount", "<?=$_CONFIG['app']['analytics']?>"]);
+      _gaq.push(["_setAccount", "<?=$_CONFIG['analytics']?>"]);
       _gaq.push(["_trackPageview"]);
 
       (function() {

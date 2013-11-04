@@ -26,7 +26,7 @@
         default: die('no image');
       }
 
-      readfile('sites/'.$_CONFIG['app']['face'].'/faces/'.$f->file);
+      readfile('content/faces/'.$f->file);
     }
     else header('location: error/404');
 

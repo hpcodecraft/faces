@@ -1,7 +1,7 @@
 <?php
   if( $_GET['tag'] == '' ) header('Location: ../');
 
-  $cookie = new Cookie($_CONFIG['app']['cookie']);
+  $cookie = new Cookie($_CONFIG['cookie']);
   $cookie->load();
 
   $_GET['tag'] = mysql_real_escape_string( $_GET['tag'] );

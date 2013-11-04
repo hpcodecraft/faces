@@ -72,13 +72,13 @@
           $args['success'] = true;
           $args['msg'] = 'Thank you for your help! Your suggestion will be reviewed and published as soon as possible!';
 
-          if( isset( $_CONFIG['app']['notificationsTo'] ) and strlen($_CONFIG['app']['notificationsTo']) > 0 ) {
-            $from = '"tags@'.$_CONFIG['app']['domain'].'" <tags@'.$_CONFIG['app']['domain'].'>';
-            $subject = $_CONFIG['app']['domain'].' - new face tag';
-            $message = 'a new face tag has been added at '.$_CONFIG['app']['domain'].'<br/>
+          if( isset( $_CONFIG['admin-email'] ) and strlen($_CONFIG['admin-email']) > 0 ) {
+            $from = '"tags@'.t('site-name').'"';
+            $subject = t('site-name').' - new face tag';
+            $message = 'a new face tag has been added at '.t('site-name').'<br/>
   login at <a href="'.$_CONFIG['baseurl'].'/admin/faces">'.$_CONFIG['baseurl'].'/admin/faces</a> to review it.';
 
-            $mail = new Email( $from, $_CONFIG['app']['notificationsTo'], $subject, $message );
+            $mail = new Email( $from, $_CONFIG['admin-email'], $subject, $message );
             $mail->send();
           }
         }

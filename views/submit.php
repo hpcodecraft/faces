@@ -5,10 +5,10 @@
 </h3>
 
 <?php else : ?>
-<h1>Submit a <?=$_CONFIG['app']['face']?></h1>
+<h1>Submit a <?=t('face-singular')?></h1>
 
 <p>
-		Here you can upload a new <?=$_CONFIG['app']['face']?>face.<br/>
+		Here you can upload a new <?=t('face-singular')?>.<br/>
 		It will be reviewed and (most likely) be published on the site as soon as possible.
 		You can help making the review easier (thus having your image published faster) if you consider these three rules of thumb:
 </p>

@@ -1,5 +1,5 @@
 <ul>
-	<li><h1><?=$_CONFIG['app']['domain']?> - API Reference</h1></li>
+	<li><h1><?=t('site-name')?> - API Reference</h1></li>
 	<li>
 		<h2>Before you read on</h2>
 		<ul>
@@ -66,7 +66,7 @@
 	<li>
 		<h2><a name="response"></a>API Response</h2>
 			<ul>
-				<?php if( $_CONFIG['app']['face'] != 'pony' ): ?>
+				<?php if( $_CONFIG['baseurl'] != 'http://ponyfac.es' ): ?>
 				<li>
 					<h3>Note: All code samples listed here are taken from <a href="http://ponyfac.es" target="_blank">ponyfac.es</a>.</h3>
 					So don't be confused about the values, the API itself is identical on both sites.
@@ -109,7 +109,7 @@
 						<ul>
 							<li><label>unix_date</label>unix timestamp of the response</li>
 
-							<li><label>total_faces</label>total amount of stored faces on <?=$_CONFIG['app']['domain']?></li>
+							<li><label>total_faces</label>total amount of stored faces on <?=t('site-name')?></li>
 							<li><label>total_views</label>total amount of views on all single faces</li>
 							<li><label>items</label>array of faces</li>
 

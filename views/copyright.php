@@ -9,5 +9,5 @@
 </a>
 <br/><br/>
 <p>
-  All credit for the face images goes to their original artists. If you are the artist of a particular image hosted here and not happy with it, write an email to <a href="mailto:<?=$_CONFIG['app']['notificationsTo']?>"><?=$_CONFIG['app']['notificationsTo']?></a> and it will be removed instantly.
+  All credit for the face images goes to their original artists. If you are the artist of a particular image hosted here and not happy with it, write an email to <a href="mailto:<?=$_CONFIG['admin-email']?>"><?=$_CONFIG['admin-email']?></a> and it will be removed instantly.
 </p>

@@ -42,7 +42,7 @@
 
           <li class="fullwidth">
             <a href="<?=$_CONFIG['baseurl']?>/<?=$f->id?>" target="_new">
-              <div class="thumb" style="background-image:url(../sites/<?=$_CONFIG['app']['face']?>/thumbs/<?=$f->thumbnail?>)">
+              <div class="thumb" style="background-image:url(<?=a('/thumbs/'.$f->thumbnail)?>)">
               </div>
             </a>
 
@@ -81,7 +81,7 @@
 
           <li class="fullwidth">
             <a href="<?=$_CONFIG['baseurl']?>/<?=$f->id?>" target="_new">
-              <div class="thumb" style="background-image:url(../sites/<?=$_CONFIG['app']['face']?>/thumbs/<?=$f->thumbnail?>)">
+              <div class="thumb" style="background-image:url(<?=a('/thumbs/'.$f->thumbnail)?>)">
               </div>
             </a>
 
@@ -111,7 +111,7 @@
 
           <li class="fullwidth">
             <a href="<?=$_CONFIG['baseurl']?>/<?=$f->id?>" target="_new">
-              <div class="thumb" style="background-image:url(../sites/<?=$_CONFIG['app']['face']?>/thumbs/<?=$f->thumbnail?>)">
+              <div class="thumb" style="background-image:url(<?=a('/thumbs/'.$f->thumbnail)?>)">
               </div>
             </a>
 

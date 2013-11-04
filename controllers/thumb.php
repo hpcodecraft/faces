@@ -26,7 +26,7 @@
         default: die('no image');
       }
 
-      readfile('sites/'.$_CONFIG['app']['face'].'/thumbs/thumb_120_'.$f->file);
+      readfile('content/thumbs/thumb_120_'.$f->file);
     }
     else header('location: error/404');
 

@@ -107,11 +107,23 @@
 
   function getView( $view ) {
     global $_CONFIG;
-    $userfile = 'sites/'.$_CONFIG['app']['face'].'/views/'.$view.'.php';
+    $userfile = 'content/views/'.$view.'.php';
     $worldfile = 'views/'.$view.'.php';
     if( file_exists( $userfile  )) return $userfile;
     else if( file_exists( $worldfile )) return $worldfile;
     else return false;
+  }
+
+  // get a text from the config
+  function t($id) {
+    global $_CONFIG;
+    return $_CONFIG['text'][$id];
+  }
+
+  // get an asset
+  function a($path) {
+    global $_CONFIG;
+    return $_CONFIG['baseurl'].'/content/'.$path;
   }
 
   // extend config
@@ -122,7 +134,8 @@
 
   // detect OS and select according copy hint text
   $os = detectOS();
-  if( $os['name'] == 'Macintosh' ) $_CONFIG['app']['copytext'] = $_CONFIG['app']['copytextMac'];
+  $copytext = t('copy-win');
+  if( $os['name'] == 'Macintosh' ) $copytext = t('copy-mac');
 
   // set up ordering
   $_CONFIG['order'] = array(
