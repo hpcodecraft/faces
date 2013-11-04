@@ -1,1 +1,0 @@
-face thumbnails will be stored here.

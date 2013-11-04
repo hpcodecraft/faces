@@ -15,7 +15,7 @@
       'site-name' => 'reactionfac.es',
       'site-title' => 'reactionfac.es, shoop da whoop!',
       'site-description' => 'a picture is worth a thousand words.',
-      'keywords' => 'emoticon, smiley, chat, im, sms, gallery',
+      'site-keywords' => 'emoticon, smiley, chat, im, sms, gallery',
       'face-singular' => 'reactionface',
       'face-plural' => 'reactionfaces',
       'copy-win' => 'Press Ctrl+C now',

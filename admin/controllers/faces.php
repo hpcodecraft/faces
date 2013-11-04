@@ -33,7 +33,7 @@
 
     $rss->setLogo(
       t('site-name'), //title
-      a('/gfx/feedicon.png'), // src
+      a('gfx/feedicon.png'), // src
       $_CONFIG['baseurl'] // link
     );
 

@@ -4,7 +4,10 @@
 
   session_start();
 
-  require_once( '../bootstrap.php' );
+  // load config for this host
+  require_once( '../config/'.$_SERVER['SERVER_NAME'].'.php' );
+  // bootstrap application
+  require_once( '../core/bootstrap.php' );
 
   $_SESSION['admin'] = true; // needed for authed ajax requests
   $_SESSION['admin_override'] = false; // override maintenance & protest pages
@@ -23,7 +26,7 @@
   }
 
   require_once( 'views/partials/header.php' );
-  require_once( '../views/partials/scroller.php' );
+  require_once( '../core/views/partials/scroller.php' );
 
   $viewfile = 'views/'.$_page.'.php';
   if( file_exists( $viewfile )) {

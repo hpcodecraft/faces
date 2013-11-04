@@ -2,6 +2,3 @@
 ._*
 .htaccess.localhost
 codekit-config.json
-/import/*
-/sites/*
-!/sites/squid

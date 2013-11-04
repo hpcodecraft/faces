@@ -3,7 +3,11 @@
   // faces dispatcher
   // ----------------------------------------
 
-  require_once( 'bootstrap.php' );
+  // load config for this host
+  require_once( 'config/'.$_SERVER['SERVER_NAME'].'.php' );
+
+  // bootstrap application
+  require_once( 'core/bootstrap.php' );
 
   // determine view
   if( !isset( $_GET['p'] )) {
@@ -13,7 +17,7 @@
     $view = $_GET['p'];
   }
 
-  $controllerfile = 'controllers/'.$view.'.php';
+  $controllerfile = 'core/controllers/'.$view.'.php';
   if( file_exists( $controllerfile )) {
     require_once( $controllerfile );
   }

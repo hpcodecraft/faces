@@ -1,5 +1,5 @@
     </section>
 
-    <script src="../js/min/admin-min.js"></script>
+    <script src="<?=$_CONFIG['baseurl']?>/core/js/min/admin-min.js"></script>
   </body>
 </html>

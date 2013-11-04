@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8"/>
     <title><?=t('site-name').' - '.$_page?></title>
-    <link rel="stylesheet" href="<?=a('css/min/admin-min.css')?>"/>
+    <link rel="stylesheet" href="<?=a('css/admin-min.css')?>"/>
     <link rel="shortcut icon" href="<?=a('gfx/favicon.png')?>"/>
   </head>
 

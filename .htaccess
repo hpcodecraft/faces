@@ -43,8 +43,8 @@ RewriteCond %{HTTPS} on
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
-RewriteRule ^protest$          protest.php                [NC,L]      # Handle protest page
-RewriteRule ^maintenance$      maintenance.php            [NC,L]      # Handle maintenance page
+RewriteRule ^protest$          core/protest.php           [NC,L]      # Handle protest page
+RewriteRule ^maintenance$      core/maintenance.php       [NC,L]      # Handle maintenance page
 RewriteRule ^/?$               index.php?p=main           [NC,L]      # Handle main page
 RewriteRule ^([0-9]+)?$        index.php?p=single&face=$1 [NC,L]      # Handle faces
 RewriteRule ^tag/(.+)?$        index.php?p=tag&tag=$1     [NC,L]      # Handle tags

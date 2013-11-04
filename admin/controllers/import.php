@@ -3,7 +3,7 @@
   $faces = array();
   $allowed = array('jpg','gif','png','jpeg');
 
-  $path     = '../import';
+  $path     = '../content/import';
   $dest     = '../content/faces';
   $thumbDir = '../content/thumbs';
 

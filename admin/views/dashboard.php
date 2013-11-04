@@ -12,7 +12,7 @@
           echo '
           <li>
             <a href="'.$_CONFIG['baseurl'].'/'.$data->id.'" target="_new">
-              <div class="thumb" style="background-image:url(<?=a('/thumbs/'.$data->thumbnail)?>)">
+              <div class="thumb" style="background-image:url(<?=a('thumbs/'.$data->thumbnail)?>)">
               </div>
             </a>
             <div class="info">
@@ -36,7 +36,7 @@
           echo '
           <li>
             <a href="'.$_CONFIG['baseurl'].'/'.$data->id.'"target="_new">
-              <div class="thumb" style="background-image:url(<?=a('/thumbs/'.$data->thumbnail)?>)">
+              <div class="thumb" style="background-image:url(<?=a('thumbs/'.$data->thumbnail)?>)">
               </div>
             </a>
             <div class="info">
@@ -58,7 +58,7 @@
           echo '
           <li>
             <a href="'.$_CONFIG['baseurl'].'/'.$data->id.'"target="_new">
-              <div class="thumb" style="background-image:url(<?=a('/thumbs/'.$data->thumbnail)?>)">
+              <div class="thumb" style="background-image:url(<?=a('thumbs/'.$data->thumbnail)?>)">
               </div>
             </a>
             <div class="info">
