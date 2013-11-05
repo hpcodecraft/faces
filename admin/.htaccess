@@ -9,4 +9,4 @@ RewriteBase /admin
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*) index.php?p=$1 [NC,L]
+RewriteRule ^(.*) index.php?page=$1 [NC,L]

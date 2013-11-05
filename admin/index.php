@@ -13,10 +13,10 @@
   $_SESSION['admin_override'] = false; // override maintenance & protest pages
 
   // determine view
-  if( !isset( $_GET['p'] ) or $_GET['p'] == '' ) {
-    $_GET['p'] = 'dashboard';
+  if( !isset( $_GET['page'] ) or $_GET['page'] == '' ) {
+    $_GET['page'] = 'dashboard';
   }
-  $_page      = $_GET['p'];
+  $_page      = $_GET['page'];
   $_page_msg  = '';
 
   // build page

@@ -81,6 +81,10 @@
       $this->_dom->save( $file );
     }
 
+    public function print() {
+      return $this->_dom->saveXML();
+    }
+
     private function getEnclosureMimeType( $enclosure ) {
       $temp = explode('.', $enclosure );
       $mime = array_pop( $temp );

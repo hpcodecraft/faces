@@ -131,9 +131,7 @@
     </li>
   </ul>
 
-  <div class="bar">
-      <label for="refresh_feeds">refresh feeds</label>
-      <input type="checkbox" id="refresh_feeds" name="refresh_feeds" checked="checked"/>
-      <button type="submit">save</button>
+  <div class="save">
+    <button type="submit">save</button>
   </div>
 </form>

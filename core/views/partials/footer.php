@@ -7,6 +7,25 @@
   <?php if( $view == 'single') require_once('views/single-meta.php'); ?>
 
   <footer>
+
+    <ul>
+      <li>
+        <a href="<?=$_CONFIG['baseurl']?>/feed" target="_blank">
+          <img src="http://assets.hpcodecraft.me/rss.png">rss feed
+        </a>
+      </li>
+      <li>
+        <a href="<?=$_CONFIG['baseurl']?>/changelog">
+          <img src="http://assets.hpcodecraft.me/changelog.png">changelog
+        </a>
+      </li>
+      <li>
+        <a href="http://hpcodecraft.me" target="_blank">
+          by hpcodecraft with ♥
+        </a>
+      </li>
+    </ul>
+
     <ul>
       <li>
         <b><?=number_format( $stats['total_views'], 0, ',', '.').' '.t('face-plural')?> viewed</b>
@@ -22,6 +41,18 @@
         <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
       </li>
       <?php endif; ?>
+    </ul>
+
+    <ul>
+      <li>
+        <b>legal</b>
+      </li>
+      <li>
+        → <a href="<?=$_CONFIG['baseurl']?>/imprint">imprint</a>
+      </li>
+      <li>
+        → <a href="<?=$_CONFIG['baseurl']?>/copyright">copyright</a>
+      </li>
     </ul>
   </footer>
 

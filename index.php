@@ -10,12 +10,8 @@
   require_once( 'core/bootstrap.php' );
 
   // determine view
-  if( !isset( $_GET['p'] )) {
-    $view = 'main';
-  }
-  else {
-    $view = $_GET['p'];
-  }
+  if( !isset( $_GET['page'] )) $view = 'main';
+  else $view = $_GET['page'];
 
   $controllerfile = 'core/controllers/'.$view.'.php';
   if( file_exists( $controllerfile )) {

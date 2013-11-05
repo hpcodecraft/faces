@@ -31,7 +31,7 @@ AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css a
 </IfModule>
 # END Gzip
 
-ErrorDocument 404 index.php?p=error&e=404
+ErrorDocument 404 index.php?page=error&e=404
 
 RewriteEngine On                                                      # Turn on the rewriting engine
 
@@ -43,20 +43,20 @@ RewriteCond %{HTTPS} on
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
-RewriteRule ^protest$          core/protest.php           [NC,L]      # Handle protest page
-RewriteRule ^maintenance$      core/maintenance.php       [NC,L]      # Handle maintenance page
-RewriteRule ^/?$               index.php?p=main           [NC,L]      # Handle main page
-RewriteRule ^([0-9]+)?$        index.php?p=single&face=$1 [NC,L]      # Handle faces
-RewriteRule ^tag/(.+)?$        index.php?p=tag&tag=$1     [NC,L]      # Handle tags
-RewriteRule ^developer?$       index.php?p=developer      [NC,L]      # Handle developer page
-RewriteRule ^imprint?$         index.php?p=imprint        [NC,L]      # Handle imprint page
-RewriteRule ^copyright?$       index.php?p=copyright      [NC,L]      # Handle copyright page
-RewriteRule ^submit?$          index.php?p=submit         [NC,L]      # Handle submission page
-RewriteRule ^changelog?$       index.php?p=changelog      [NC,L]      # Handle changelog page
-RewriteRule ^([0-9]+)/thumb?$  index.php?p=thumb&face=$1  [NC,L]      # Handle face thumbnails
-RewriteRule ^([0-9]+)/full?$   index.php?p=full&face=$1   [NC,L]      # Handle face fullsizes
-RewriteRule ^error/([0-9]+)?$  index.php?p=error&e=$1     [NC,L]      # Handle errors
-RewriteRule ^feed/rss$         index.php?p=feed&f=rss     [NC,L]      # Handle feeds
-RewriteRule ^api/(.*)/(.*)?$   index.php?p=api&$1=$2      [NC,L]      # Handle api
-RewriteRule ^ajax?$            index.php?p=ajax           [NC,L]      # Handle ajax calls
-RewriteRule ^cookie?$          index.php?p=cookie         [NC,L]      # Handle cookie
+RewriteRule ^protest$          core/protest.php              [NC,L]      # Handle protest page
+RewriteRule ^maintenance$      core/maintenance.php          [NC,L]      # Handle maintenance page
+RewriteRule ^/?$               index.php?page=main           [NC,L]      # Handle main page
+RewriteRule ^([0-9]+)?$        index.php?page=single&sub=$1  [NC,L]      # Handle faces
+RewriteRule ^tag/(.+)?$        index.php?page=tag&sub=$1     [NC,L]      # Handle tags
+RewriteRule ^developer?$       index.php?page=developer      [NC,L]      # Handle developer page
+RewriteRule ^imprint?$         index.php?page=imprint        [NC,L]      # Handle imprint page
+RewriteRule ^copyright?$       index.php?page=copyright      [NC,L]      # Handle copyright page
+RewriteRule ^submit?$          index.php?page=submit         [NC,L]      # Handle submission page
+RewriteRule ^changelog?$       index.php?page=changelog      [NC,L]      # Handle changelog page
+RewriteRule ^([0-9]+)/thumb?$  index.php?page=thumb&sub=$1   [NC,L]      # Handle face thumbnails
+RewriteRule ^([0-9]+)/full?$   index.php?page=full&sub=$1    [NC,L]      # Handle face fullsizes
+RewriteRule ^error.*$          index.php?page=error          [NC,L]      # Handle errors
+RewriteRule ^feed.*$           index.php?page=feed           [NC,L]      # Handle feeds
+RewriteRule ^api/(.*)/(.*)?$   index.php?page=api&$1=$2      [NC,L]      # Handle api
+RewriteRule ^ajax?$            index.php?page=ajax           [NC,L]      # Handle ajax calls
+RewriteRule ^cookie?$          index.php?page=cookie         [NC,L]      # Handle cookie

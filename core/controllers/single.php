@@ -1,5 +1,5 @@
 <?php
-  $fid = (int)$_GET['face'];
+  $fid = (int)$_GET['sub'];
 
   try {
     $f = new Face( $fid );

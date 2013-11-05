@@ -1,7 +1,7 @@
 <?php
-  if( is_numeric( $_GET['face'] )) {
+  if( is_numeric( $_GET['sub'] )) {
 
-    $f = Face::load( $_GET['face'] );
+    $f = Face::load( $_GET['sub'] );
 
     if( $f ) {
 
