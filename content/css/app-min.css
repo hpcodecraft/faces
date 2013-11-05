@@ -242,7 +242,7 @@ nav .spacer {
 footer ul {
   display: inline;
   float: left;
-  width: 17.058823529411764%;
+  width: 30.358823529411765%;
   margin: 0 1.4705882352941175%;
 }
 @media screen and (max-width: 960px) {
@@ -522,12 +522,6 @@ nav a.order:not(.active):hover:before {
   word-wrap: break-word;
   font-size: 1.3rem;
   margin-bottom: 1rem;
-}
-.content.changelog ul {
-  margin-bottom: 1rem;
-}
-.content.changelog ul ul li {
-  padding-left: 1rem;
 }
 .content.maintenance {
   width: 100%;

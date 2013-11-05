@@ -214,7 +214,7 @@ header .misc {
 nav a {
   display: inline;
   float: left;
-  width: 11.76470588235294%;
+  width: 15.098039215686274%;
   margin: 0 2.450980392156863%;
 }
 section h2,
@@ -242,12 +242,6 @@ section td {
   display: inline;
   float: left;
   width: 28.431372549019606%;
-  margin: 0 2.450980392156863%;
-}
-section.changelog .col:last-child {
-  display: inline;
-  float: left;
-  width: 61.76470588235294%;
   margin: 0 2.450980392156863%;
 }
 @media screen and (max-width: 910px) {
@@ -281,12 +275,6 @@ section.changelog .col:last-child {
     width: 45.09803921568628%;
     margin: 0 2.450980392156863%;
   }
-  section.changelog .col:last-child {
-    display: inline;
-    float: left;
-    width: 45.09803921568628%;
-    margin: 0 2.450980392156863%;
-  }
 }
 @media screen and (max-width: 580px) {
   nav a {
@@ -296,12 +284,6 @@ section.changelog .col:last-child {
     margin: 0 2.450980392156863%;
   }
   section .col {
-    display: inline;
-    float: left;
-    width: 95.09803921568627%;
-    margin: 0 2.450980392156863%;
-  }
-  section.changelog .col:last-child {
     display: inline;
     float: left;
     width: 95.09803921568627%;

@@ -23,7 +23,6 @@
       <a href="dashboard">dashboard</a>
       <a href="faces">faces</a>
       <a href="import">import</a>
-      <a href="changelog">changelog</a>
       <a href="settings">settings</a>
       <a href="logs">logs</a>
     </nav>

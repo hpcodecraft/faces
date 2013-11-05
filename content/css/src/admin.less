@@ -33,16 +33,13 @@ header {
   .message  { .column(2.5); }
   .misc     { .column(1); }
 }
-nav a       { .column(1); }
+nav a       { .column(1.2); }
 section {
   h2, form,
     .bar    { .column(6); }
   .col      { .column(2); }
   tr        { .column(6); }
   th, td    { .column(2); }
-  &.changelog .col:last-child {
-    .column(4);
-  }
 }
 
 @media screen and (max-width: 910px) {
@@ -54,9 +51,6 @@ section {
   nav a       { .column(2); }
   section {
     .col      { .column(3); }
-    &.changelog .col:last-child {
-      .column(3);
-    }
   }
 }
 
@@ -64,9 +58,6 @@ section {
   nav a       { .column(3); }
   section {
     .col      { .column(6); }
-    &.changelog .col:last-child {
-      .column(6);
-    }
   }
 }
 

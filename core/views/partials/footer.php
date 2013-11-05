@@ -7,25 +7,6 @@
   <?php if( $view == 'single') require_once('views/single-meta.php'); ?>
 
   <footer>
-
-    <ul>
-      <li>
-        <a href="<?=$_CONFIG['baseurl']?>/feed" target="_blank">
-          <img src="http://assets.hpcodecraft.me/rss.png">rss feed
-        </a>
-      </li>
-      <li>
-        <a href="<?=$_CONFIG['baseurl']?>/changelog">
-          <img src="http://assets.hpcodecraft.me/changelog.png">changelog
-        </a>
-      </li>
-      <li>
-        <a href="http://hpcodecraft.me" target="_blank">
-          <img src="https://s.gravatar.com/avatar/9490cbaf76b9a71e313ad2b9445d8a15?s=20" style="border-radius:100%">hpcodecraft
-        </a>
-      </li>
-    </ul>
-
     <ul>
       <li>
         <b><?=number_format( $stats['total_views'], 0, ',', '.').' '.t('face-plural')?> viewed</b>
@@ -54,6 +35,19 @@
       <?php endif; ?>
       <li>
         → <a href="<?=$_CONFIG['baseurl']?>/copyright">copyright</a>
+      </li>
+    </ul>
+
+    <ul>
+      <li>
+        <a href="<?=$_CONFIG['baseurl']?>/feed" target="_blank">
+          <img src="http://assets.hpcodecraft.me/rss.png">rss feed
+        </a>
+      </li>
+      <li>
+        <a href="http://hpcodecraft.me" target="_blank">
+          <img src="https://s.gravatar.com/avatar/9490cbaf76b9a71e313ad2b9445d8a15?s=20" style="border-radius:100%">hpcodecraft
+        </a>
       </li>
     </ul>
   </footer>

@@ -1,6 +1,6 @@
 
 <?php
-  $onlyBackLink = array('changelog','copyright','imprint');
+  $onlyBackLink = array('copyright','imprint');
   if( in_array( $view, $onlyBackLink )) :
 ?>
 

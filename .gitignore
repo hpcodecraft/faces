@@ -2,3 +2,6 @@
 ._*
 .htaccess.localhost
 codekit-config.json
+content/faces/*
+content/import/*
+content/thumbs/*

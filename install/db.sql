@@ -9,14 +9,6 @@ CREATE TABLE `categories` (
   KEY `weight` (`weight`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
 
-CREATE TABLE `changelog` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `posted` int(10) unsigned NOT NULL,
-  `content` text COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `posted` (`posted`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
-
 CREATE TABLE `faces` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `file` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
