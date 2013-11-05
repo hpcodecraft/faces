@@ -11,17 +11,6 @@
         <li>
           <input type="checkbox" id="config-<?=str_replace(' ','-',$k)?>" name="config[<?=$k?>]" <?=(($v['value'] == 1) ? 'checked="checked"' : '')?>/>
           <label for="config-<?=$k?>">enable <?=$k?>
-            <?php if( $k == 'protest' ): ?>
-            against <select name="protest_type">
-              <?php foreach( $protestTemplates as $t ):
-                $val = substr( $t, 0, -4 );
-                $checked = '';
-                if( $val == $conf->{'protest type'} ) $checked = ' selected';
-              ?>
-              <option value="<?=$val?>"<?=$checked?>><?=$val?></option>
-              <?php endforeach; ?>
-            </select>
-            <?php endif; ?>
           </label>
           <i><?=$v['description']?></i>
         </li>
@@ -67,8 +56,8 @@
     </li>
 
     <li class="settings-block">
-      <h3>maintenance/protest override</h3>
-      <i>Enable this to be able to view your site when maintenance or protest mode are enabled.<br>
+      <h3>maintenance override</h3>
+      <i>Enable this to be able to view your site when maintenance mode is enabled.<br>
         Note: The admin frontend will always work, regardless of this setting.</i>
       <ul>
         <li>

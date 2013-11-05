@@ -529,16 +529,14 @@ nav a.order:not(.active):hover:before {
 .content.changelog ul ul li {
   padding-left: 1rem;
 }
-.content.maintenance,
-.content.protest {
+.content.maintenance {
   width: 100%;
   float: left;
   margin-left: 0;
   margin-right: 0;
   text-align: center;
 }
-.content.maintenance img,
-.content.protest img {
+.content.maintenance img {
   margin-bottom: 1rem;
 }
 /*** face styles ***/

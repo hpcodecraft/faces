@@ -10,7 +10,7 @@
   require_once( '../core/bootstrap.php' );
 
   $_SESSION['admin'] = true; // needed for authed ajax requests
-  $_SESSION['admin_override'] = false; // override maintenance & protest pages
+  $_SESSION['admin_override'] = false; // override maintenance mode
 
   // determine view
   if( !isset( $_GET['page'] ) or $_GET['page'] == '' ) {

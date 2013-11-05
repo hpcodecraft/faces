@@ -46,7 +46,7 @@
 
   if( !defined('NO_DISPATCH')) {
 
-    if( (int)$conf->maintenance === 1 or (int)$conf->protest === 1 ) {
+    if( (int)$conf->maintenance === 1 ) {
       $p = pathinfo($_SERVER['PHP_SELF'] );
       $d = substr( $p['dirname'], -5 );
 
@@ -54,7 +54,6 @@
       $hasOverride = (isset($_SESSION['admin_override'])) ? $_SESSION['admin_override'] : false;
 
       if( $d != 'admin' and !$hasOverride ) {
-        if( (int)$conf->protest === 1 ) $jumpTo = 'protest';
         if( (int)$conf->maintenance === 1 ) $jumpTo = 'maintenance';
         header('location: '.$_CONFIG['baseurl'].'/'.$jumpTo );
       }

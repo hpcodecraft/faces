@@ -1,13 +1,8 @@
 <?php
 
   $saved = false;
-
   $skip = array('.', '..'); // skip these when scanning directories
-
   $confData = $conf->{'*'}; // get config
-
-  // load available protest templates
-  $protestTemplates = array_diff( scandir( '../views/protest' ), $skip );
 
   if( isset( $_POST['submit'] )) {
 
@@ -16,13 +11,6 @@
       if( $v['has_checkbox'] != 1 ) continue;
       if( isset( $_POST['config'][$k] ) and $_POST['config'][$k] == 'on' ) {
         $conf->{ $k } = 1;
-
-        // save protest mode
-        if( $k == 'protest' ) {
-          //var_dump($_POST);
-
-          $conf->{'protest type'} = $_POST['protest_type'];
-        }
       }
       else $conf->{ $k } = 0;
     }
@@ -51,7 +39,7 @@
     }
   }
 
-  // maintenance/protest override
+  // maintenance override
   if( isset( $_POST['admin_override'] )) {
     if( $_POST['admin_override'] == true ) {
       $_SESSION['admin_override'] = true;
