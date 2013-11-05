@@ -21,7 +21,7 @@
       </li>
       <li>
         <a href="http://hpcodecraft.me" target="_blank">
-          by hpcodecraft with ♥
+          <img src="https://s.gravatar.com/avatar/9490cbaf76b9a71e313ad2b9445d8a15?s=20" style="border-radius:100%">hpcodecraft
         </a>
       </li>
     </ul>
@@ -47,9 +47,11 @@
       <li>
         <b>legal</b>
       </li>
+      <?php if( $conf->imprint == 1): ?>
       <li>
         → <a href="<?=$_CONFIG['baseurl']?>/imprint">imprint</a>
       </li>
+      <?php endif; ?>
       <li>
         → <a href="<?=$_CONFIG['baseurl']?>/copyright">copyright</a>
       </li>

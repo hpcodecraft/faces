@@ -27,6 +27,7 @@
   <meta name="keywords" content="<?=$meta['keywords']?>">
   <meta property="og:title" content="<?=$meta['title']?>">
   <meta property="og:image" content="<?=$meta['image']?>">
+  <meta name="author" content="Volker Wieban">
 
   <link rel="stylesheet" href="<?=a('css/app-min.css')?>">
   <link rel="shortcut icon" href="<?=a('gfx/favicon.png')?>">
