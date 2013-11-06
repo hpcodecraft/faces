@@ -1,3 +1,13 @@
+<?php
+  $form_title = '';
+  switch($_page) {
+    case 'dashboard': $form_title = 'Total image views: '.$stats['total_views']; break;
+    case 'faces': $form_title = "Manage your image collection"; break;
+    case 'import': $form_title = 'Found '.count($faces).' new images'; break;
+    case 'settings': $form_title = 'Site settings'; break;
+    case 'logs': $form_title = 'API hits'; break;
+  }
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -27,4 +37,15 @@
       <a href="logs">logs</a>
     </nav>
 
+    <?php if($_form_enabled): ?>
+    <form action="??" method="POST" class="settings">
+    <div class="form-actions">
+      <h2><?=$form_title?></h2>
+      <button type="submit">save</button>
+    </div>
+    <?php else: ?>
+    <div class="form-actions">
+      <h2><?=$form_title?></h2>
+    </div>
+    <?php endif; ?>
     <section class="<?=$_page?>">

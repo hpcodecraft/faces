@@ -1,5 +1,7 @@
 <?php
 
+  $_form_enabled = true;
+
   // save changes
   if( isset( $_POST['face'] )) {
     foreach( $_POST['face'] as $id => $data ) {

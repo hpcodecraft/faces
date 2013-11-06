@@ -18,6 +18,7 @@
   }
   $_page      = $_GET['page'];
   $_page_msg  = '';
+  $_form_enabled = false;
 
   // build page
   $controllerfile = 'controllers/'.$_page.'.php';

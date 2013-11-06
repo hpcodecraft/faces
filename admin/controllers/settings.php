@@ -1,5 +1,7 @@
 <?php
 
+  $_form_enabled = true;
+
   $saved = false;
   $skip = array('.', '..', 'README.md'); // skip these when scanning directories
   $confData = $conf->{'*'}; // get config

@@ -1,4 +1,3 @@
-<h2>API hits</h2>
 <table id="logtable">
   <tr>
     <th>time</th>

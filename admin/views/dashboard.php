@@ -1,4 +1,3 @@
-<h2>views total: <?=$stats['total_views']?></h2>
 <ul>
   <li class="col">
     <h3>newest</h3>

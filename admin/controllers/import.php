@@ -1,5 +1,6 @@
 <?php
 
+  $_form_enabled = true;
   $faces = array();
   $allowed = array('jpg','gif','png','jpeg');
 

@@ -1,77 +1,59 @@
-<h2>settings</h2>
-<form action="settings" method="POST" class="settings">
-  <ul>
-    <li class="settings-block" id="settings-config">
-      <h3>config</h3>
-      <i>Manage your site configuration.</i>
-      <ul>
-        <?php foreach( $confData as $k => $v ):
-          if( $v['has_checkbox'] != 1 ) continue;
-        ?>
-        <li>
-          <input type="checkbox" id="config-<?=str_replace(' ','-',$k)?>" name="config[<?=$k?>]" <?=(($v['value'] == 1) ? 'checked="checked"' : '')?>/>
-          <label for="config-<?=$k?>">enable <?=$k?>
-          </label>
-          <i><?=$v['description']?></i>
-        </li>
-        <?php endforeach; ?>
-      </ul>
-    </li>
+<ul class="form-group">
+  <?php foreach( $confData as $k => $v ):
+    if( $v['has_checkbox'] != 1 ) continue;
+  ?>
+  <li>
+    <label>
+      <input type="checkbox" name="config[<?=$k?>]" <?=(($v['value'] == 1) ? 'checked="checked"' : '')?>/>Enable <?=$k?>
+    </label>
+    <i><?=$v['description']?></i>
+  </li>
+  <?php endforeach; ?>
+</ul>
 
-    <li class="settings-block" id="setting-categories">
-      <h3>categories</h3>
-      <i>Hit Return when editing a category name to save it.</i>
-      <ul>
-        <?php foreach( $_CONFIG['category'] as $c ): if( $c->id == 0 ) continue; ?>
-        <li class="category" data-id="<?=$c->id?>" data-weight="<?=$c->weight?>">
-          <input type="text" class="category-name" value="<?=$c->name?>">
-          <button type="button" class="category-delete">✖</button>
-          <button type="button" class="category-up">⬆</button>
-          <button type="button" class="category-down">⬇</button>
-        </li>
-        <?php endforeach; ?>
-        <li>
-          <input type="text" id="category-add" placeholder="new category">
-          <button type="button" class="add">✚</button>
-        </li>
-      </ul>
-    </li>
+<ul class="form-group">
+  <li>
+    <h3>Categories</h3>
+    <i>Hit Return when editing a category name to save it.</i>
+  </li>
+  <?php foreach( $_CONFIG['category'] as $c ): if( $c->id == 0 ) continue; ?>
+  <li class="category" data-id="<?=$c->id?>" data-weight="<?=$c->weight?>">
+    <input type="text" class="category-name" value="<?=$c->name?>">
+    <button type="button" class="category-delete">✖</button>
+    <button type="button" class="category-up">⬆</button>
+    <button type="button" class="category-down">⬇</button>
+  </li>
+  <?php endforeach; ?>
+  <li>
+    <input type="text" id="category-add" placeholder="new category">
+    <button type="button" class="add">✚</button>
+  </li>
+</ul>
 
-    <li class="settings-block">
-      <h3>thumbnails</h3>
-      <i>If thumbnails are missing you should generate new ones.</i>
-      <ul>
-        <li class="thumbnail-status" title="thumbnail sizes: <?php foreach( $thumbSizes as &$size ) $size.='px'; echo implode(', ', $thumbSizes); ?>">thumbnails are <b><?=(count($thumbs) < count($faces))?'missing':'complete';?></b>
-        </li>
-        <li>
-          <input type="radio" id="thumb-noop" name="thumb" value="noop" checked="checked"/>
-          <label for="thumb-noop">do nothing</label>
-        </li>
-        <li>
-          <input type="radio" id="thumb-all" name="thumb" value="all"/>
-          <label for="thumb-all">generate new thumbnails</label>
-        </li>
-      </ul>
-    </li>
+<ul class="form-group">
+  <li>
+    <h3>Maintenance override</h3>
+    <i>Enable this to be able to view your site when maintenance mode is enabled. The administration tools will always work, regardless of this setting.</i>
+  </li>
+  <li>
+    <label><input type="radio" name="admin_override" value="1" <?php if( $_SESSION['admin_override'] == true ) echo 'checked="checked"'; ?>/>Enabled</label>
+  </li>
+  <li>
+    <label><input type="radio" name="admin_override" value="0" <?php if( $_SESSION['admin_override'] == false) echo 'checked="checked"'; ?>/>Disabled</label>
+  </li>
+</ul>
 
-    <li class="settings-block">
-      <h3>maintenance override</h3>
-      <i>Enable this to be able to view your site when maintenance mode is enabled.<br>
-        Note: The admin frontend will always work, regardless of this setting.</i>
-      <ul>
-        <li>
-          <input type="radio" name="admin_override" value="1" id="admin-override-on" <?php if( $_SESSION['admin_override'] == true ) echo 'checked="checked"'; ?>/>
-          <label for="admin-override-on">enabled</label>
-        </li>
-        <li>
-          <input type="radio" name="admin_override" value="0" id="admin-override-off" <?php if( $_SESSION['admin_override'] == false) echo 'checked="checked"'; ?>/>
-          <label for="admin-override-off">disabled</label>
-        </li>
-      </ul>
-    </li>
-  </ul>
-
-  <div class="save">
-    <button type="submit" name="submit">save</button>
-  </div>
-</form>
+<ul class="form-group">
+  <li>
+    <h3>Thumbnails</h3>
+    <i>If thumbnails are missing you should generate new ones.</i>
+  </li>
+  <li class="thumbnail-status" title="thumbnail status">Thumbnails are <b><?=(count($thumbs) < count($faces))?'missing':'complete';?></b>
+  </li>
+  <li>
+    <label><input type="radio" name="thumb" value="noop" checked="checked"/>Do nothing</label>
+  </li>
+  <li>
+    <label><input type="radio" name="thumb" value="all"/>Generate new thumbnails</label>
+  </li>
+</ul>

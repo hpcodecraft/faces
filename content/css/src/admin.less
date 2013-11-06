@@ -34,9 +34,8 @@ header {
   .misc     { .column(1); }
 }
 nav a       { .column(1.2); }
+.form-actions { .column(6); }
 section {
-  h2, form,
-    .bar    { .column(6); }
   .col      { .column(2); }
   tr        { .column(6); }
   th, td    { .column(2); }
@@ -64,15 +63,21 @@ section {
 // styling
 
 h2 {
-  padding-top: 2rem;
+  font-size: 1.2em;
+  font-weight: normal;
+  float: left;
+  line-height: 2em;
+  height: auto;
 }
 
 h3 {
-  margin: 2rem 0 0 0;
+  font-size: 1.2em;
+  font-weight: normal;
 }
 
 body {
   color: @medium;
+  line-height: 150%;
 }
 
 header {
@@ -95,12 +100,6 @@ header {
     .padding-small;
   }
 
-  .dev {
-    position: absolute;
-    top: .5rem;
-    right: 1rem;
-  }
-
   .back {
     color: #fff;
     position: absolute;
@@ -118,6 +117,16 @@ nav {
     text-align: center;
     padding: .5rem 0;
   }
+
+  a:hover { text-decoration: underline; }
+}
+
+.form-actions {
+  text-align: right;
+  background: lighten(@light, 10);
+  padding: .5rem 1rem;
+  box-sizing: border-box;
+  .fullwidth;
 }
 
 section {
@@ -182,63 +191,20 @@ section {
   }
 } // section
 
+.form-group {
+  margin: 1em;
 
-.settings {
-
-  .settings-block {
-    margin-bottom: 2rem;
-    padding: 0 2rem;
+  li {
+    margin-bottom: .5em;
   }
 
-  .save {
-    position: fixed;
-    top: 10rem;
-    right: 1rem;
-
-    button {
-      font-size: 1.5rem;
-    }
-  }
-
-  h3 {
-    font-size: 1.5rem;
+  input[type=checkbox],
+  input[type=radio] {
+    margin-right: 1em;
   }
 
   i {
-    display: inline-block;
-    margin: 1rem 0;
+    font-size: .9em;
+    display: block;
   }
-
-  .thumbnail-status {
-    margin-bottom: 1rem;
-  }
-
-  #setting-imprint {
-    display: none;
-
-    textarea {
-      margin-top: 1rem;
-    }
-  }
-
-  #settings-config {
-    label {
-      font-weight: bold;
-    }
-
-    i {
-      display: block;
-      margin: .5rem 0 2rem 0;
-    }
-  }
-
-  #setting-categories {
-    button {
-      height: 20px;
-      width: 20px;
-      font-size: 1rem;
-      padding: 0;
-    }
-  }
-
 }
