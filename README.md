@@ -25,7 +25,7 @@ Finally, upload all the files to your webserver.
 ### CSS
 To change the appearance of your site, you will have to edit the file **/content/css/app-min.css** and **/content/css/admin-min.css** for the admin frontend.
 
-To make things easier you can also edit the less source files in **/content/css/src** and overwrite the compiled CSS.
+To make things easier you can also edit the [less](http://lesscss.org) source files in **/content/css/src** and overwrite the compiled CSS.
 
 ### Templates
 Templates in **/core/templates** can be overridden by creating a file with the same name in **/content/templates**.
