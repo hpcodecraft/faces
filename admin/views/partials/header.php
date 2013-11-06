@@ -38,10 +38,10 @@
     </nav>
 
     <?php if($_form_enabled): ?>
-    <form action="??" method="POST" class="settings">
+    <form action="<?=$_page?>" method="POST">
     <div class="form-actions">
       <h2><?=$form_title?></h2>
-      <button type="submit">save</button>
+      <button type="submit" name="submit">save</button>
     </div>
     <?php else: ?>
     <div class="form-actions">

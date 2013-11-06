@@ -33,7 +33,7 @@
     }
   }
 
-  if( isset( $_POST['import'] ) and $_POST['import'] == true ) {
+  if( isset( $_POST['submit'] )) {
 
     // import
     $imported = 0;

@@ -288,6 +288,10 @@ section td {
     margin: 0 2.450980392156863%;
   }
 }
+body {
+  color: #3986f9;
+  line-height: 150%;
+}
 h2 {
   font-size: 1.2em;
   font-weight: normal;
@@ -299,9 +303,8 @@ h3 {
   font-size: 1.2em;
   font-weight: normal;
 }
-body {
-  color: #3986f9;
-  line-height: 150%;
+label {
+  cursor: pointer;
 }
 header {
   background: #3986f9;

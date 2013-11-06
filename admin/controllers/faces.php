@@ -3,7 +3,8 @@
   $_form_enabled = true;
 
   // save changes
-  if( isset( $_POST['face'] )) {
+  if( isset( $_POST['submit'] )) {
+
     foreach( $_POST['face'] as $id => $data ) {
 
       if( isset( $data['enabled'] ) and $data['enabled'] == 'on' ) $enabled = 1;

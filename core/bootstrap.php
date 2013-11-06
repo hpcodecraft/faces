@@ -44,7 +44,7 @@
   // init config from DB
   $conf = new Config();
 
-  if( !defined('NO_DISPATCH')) {
+  if($view != 'maintenance') {
 
     if( (int)$conf->maintenance === 1 ) {
       $p = pathinfo($_SERVER['PHP_SELF'] );
