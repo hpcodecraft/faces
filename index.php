@@ -19,17 +19,17 @@
   }
 
   // include templates
-  require_once getView( 'partials/header' );
+  require_once getTemplate( 'partials/header' );
   if( $view == 'maintenance' ) {
-    require_once getView( $view );
+    require_once getTemplate( $view );
     exit;
   }
 
   if( !( $view == 'single' or $view == 'error' )) {
-    require_once getView( 'partials/nav' );
+    require_once getTemplate( 'partials/nav' );
   }
 
-  require_once getView( 'partials/scroller' );
-  require_once getView( $view );
-  require_once getView( 'partials/footer' );
+  require_once getTemplate( 'partials/scroller' );
+  require_once getTemplate( $view );
+  require_once getTemplate( 'partials/footer' );
 ?>

@@ -4,7 +4,7 @@
 
   </div>
 
-  <?php if( $view == 'single') require_once 'core/views/single-meta.php'; ?>
+  <?php if( $view == 'single') require_once 'core/templates/single-meta.php'; ?>
 
   <footer>
     <ul>

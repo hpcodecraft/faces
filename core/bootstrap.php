@@ -95,10 +95,10 @@
     if(strpos($ua, 'Linux')) return array( 'name' => 'Linux', 'type' => 'Desktop' );
   }
 
-  function getView( $view ) {
+  function getTemplate( $view ) {
     global $_CONFIG;
-    $userfile = 'content/views/'.$view.'.php';
-    $worldfile = 'core/views/'.$view.'.php';
+    $userfile = 'content/templates/'.$view.'.php';
+    $worldfile = 'core/templates/'.$view.'.php';
     if( file_exists( $userfile  )) return $userfile;
     else if( file_exists( $worldfile )) return $worldfile;
     else return false;

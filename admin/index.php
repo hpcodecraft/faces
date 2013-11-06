@@ -26,13 +26,13 @@
     require_once( $controllerfile );
   }
 
-  require_once( 'views/partials/header.php' );
-  require_once( '../core/views/partials/scroller.php' );
+  require_once( 'templates/partials/header.php' );
+  require_once( '../core/templates/partials/scroller.php' );
 
-  $viewfile = 'views/'.$_page.'.php';
+  $viewfile = 'templates/'.$_page.'.php';
   if( file_exists( $viewfile )) {
     require_once( $viewfile );
   }
 
-  require_once( 'views/partials/footer.php' );
+  require_once( 'templates/partials/footer.php' );
 ?>

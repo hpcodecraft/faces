@@ -1,2 +1,2 @@
-Copy files from /views to this folder and edit them to override the default ones.
-This folder is using the same structure as the global views, so if the file you want to override lives in a subfolder, just re-create it here.
+Copy files from /core/views to this folder and edit them to override the default ones.
+If you want to override a partial just create /content/views/partials and put your templates there.
