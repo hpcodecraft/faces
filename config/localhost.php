@@ -7,7 +7,7 @@
     'baseurl' => 'http://localhost:8888/Github/faces', // full base URL, without trailing slash
     'admin-email' => 'johndoe@gmail.com', // notifications about submissions will be sent there
     'cookie' => 'reactionfaces', // cookie namespace
-    'thumbsizes' => array( 120, 150 ), // thumbnail sizes (you don't need to change this usually)
+    'thumbsize' => 120, //array( 120 ), // thumbnail sizes (you don't need to change this usually)
     //'analytics' => 'UA-xxxxxxxx-x', // optional: Google Analytics key
     //'flattr'    => 'http://flattr.com/thing/xxxxxx/My-cool-reaction-face-page', // optional: Flattr thing URL
 

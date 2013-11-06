@@ -13,15 +13,15 @@
   <nav id="nav-main">
     <ul class="pages">
       <li>
-        <a class="page<?=($view=='main')?' active':''?>" href="<?=$root?>/">Faces</a>
+        <a class="page<?=($view=='main')?' active':''?>" href="<?=$_CONFIG['baseurl']?>">Faces</a>
       </li>
       <li>
-        <a class="page<?=($view=='developer')?' active':''?>" href="<?=$root?>/developer">Developer</a>
+        <a class="page<?=($view=='developer')?' active':''?>" href="<?=$_CONFIG['baseurl']?>/developer">Developer</a>
       </li>
 
       <?php if( $conf->submissions == 1 ) : ?>
       <li>
-        <a class="page<?=($view=='submit')?' active':''?>" href="<?=$root?>/submit">Submit a <?=t('face-singular')?></a>
+        <a class="page<?=($view=='submit')?' active':''?>" href="<?=$_CONFIG['baseurl']?>/submit">Submit a <?=t('face-singular')?></a>
       </li>
       <?php endif; ?>
     </ul>

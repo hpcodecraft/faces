@@ -26,7 +26,7 @@
       for( x in Face ) {
         html = '\
           <div id="face_'+Face[x].id+'" class="face" data-face="'+app.baseurl+'/content/faces/'+Face[x].file+'" data-id="'+Face[x].id+'">\
-            <img class="face_thumb" data-original="'+app.baseurl+'/content/thumbs/thumb_120_'+Face[x].file+'" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>\
+            <div class="face_thumb" style="background-image:url('+app.baseurl+'/content/thumbs/thumb_120_'+Face[x].file+')"></div>\
             <div class="face_orig"></div>\
             <div class="gifmarker">►</div>\
             <a class="permalink" href="'+app.baseurl+'/'+Face[x].id+'">➜</div>\
@@ -42,9 +42,11 @@
         }
       });
 
+      /*
       $('.face_thumb').lazyload({
         effect : 'fadeIn'
       });
+      */
 
       Faces.changeCategory( Faces.options.category );
     },

@@ -67,12 +67,9 @@
 
           // create thumbnails
           $fi = new Image( $dest.'/'.$f['hash'].'.'.$f['type'] );
-          foreach( $_CONFIG['thumbsizes'] as $thumbsize ) {
-            $fi->createThumbnail( $thumbsize, $thumbDir );
-          }
+          $fi->createThumbnail( $_CONFIG['thumbsize'], $thumbDir );
 
           $imported++;
-
           $delete = true;
           break;
       }

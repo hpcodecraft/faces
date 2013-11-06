@@ -146,5 +146,4 @@
   // some variables
   $faces    = array();
   $stats    = getStats();
-  $root     = '.';
 ?>

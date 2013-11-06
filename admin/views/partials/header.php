@@ -9,13 +9,13 @@
 
   <body>
     <header>
-      <a class="logo" href="<?=$root?>/">
+      <a class="logo" href="<?=$_CONFIG['baseurl']?>/admin">
         <h1><?=t('site-name').' - '.$_page?></h1>
       </a>
       <div id="message" class="message"><?=$_page_msg?></div>
 
       <div class="misc">
-        <a class="back" href="../">back to page →</a>
+        <a class="back" href="<?=$_CONFIG['baseurl']?>">back to page →</a>
       </div>
     </header>
 

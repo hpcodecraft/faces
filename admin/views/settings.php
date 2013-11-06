@@ -41,8 +41,7 @@
       <h3>thumbnails</h3>
       <i>If thumbnails are missing you should generate new ones.</i>
       <ul>
-        <li class="thumbnail-status" title="thumbnail sizes: <?php foreach( $thumbSizes as &$size ) $size.='px'; echo implode(', ', $thumbSizes); ?>">
-          <?=count($thumbSizes)?> sizes defined, thumbnails <b><?=(count($thumbs)<(count($faces)*count($thumbSizes)))?'missing':'complete';?></b>
+        <li class="thumbnail-status" title="thumbnail sizes: <?php foreach( $thumbSizes as &$size ) $size.='px'; echo implode(', ', $thumbSizes); ?>">thumbnails are <b><?=(count($thumbs) < count($faces))?'missing':'complete';?></b>
         </li>
         <li>
           <input type="radio" id="thumb-noop" name="thumb" value="noop" checked="checked"/>

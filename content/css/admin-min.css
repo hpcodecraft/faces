@@ -29,27 +29,27 @@ body:after {
   font-family: Tahoma, sans-serif;
 }
 #alert {
-  width: 500px;
-  height: 373px;
-  left: 30px;
-  bottom: -373px;
+  width: 320px;
+  height: 245px;
+  right: 0;
+  bottom: -245px;
 }
 #alerttext {
-  width: 120px;
-  height: 120px;
-  left: 400px;
-  bottom: 200px;
+  width: 336px;
+  height: 184px;
+  right: 90px;
+  bottom: 175px;
 }
 #alertlabel {
   color: #075ddf;
   position: absolute;
-  width: 100px;
+  width: 336px;
   height: 30px;
-  top: 47px;
-  left: 10px;
+  top: 64px;
+  left: 0;
   padding: 0;
-  font-size: 22px;
-  font-family: "Arial", sans-serif;
+  font-size: 26px;
+  font-family: Arial, sans-serif;
   text-align: center;
   font-weight: bold;
 }

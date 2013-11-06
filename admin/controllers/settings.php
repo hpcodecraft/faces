@@ -1,7 +1,7 @@
 <?php
 
   $saved = false;
-  $skip = array('.', '..'); // skip these when scanning directories
+  $skip = array('.', '..', 'README.md'); // skip these when scanning directories
   $confData = $conf->{'*'}; // get config
 
   if( isset( $_POST['submit'] )) {
@@ -26,15 +26,11 @@
   $faces  = array_diff( scandir( $faceDir ), $skip );
   $thumbs = array_diff( scandir( $thumbDir ), $skip );
 
-  $thumbSizes = array( 120, 150 );
-
   if( isset( $_POST['thumb'] )) {
     if( $_POST['thumb'] == 'all' ) {
       foreach( $faces as $face ) {
         $fi = new Image( $faceDir.'/'.$face );
-        foreach( $_CONFIG['thumbsizes'] as $thumbsize ) {
-          $fi->createThumbnail( $thumbsize, $thumbDir );
-        }
+        $fi->createThumbnail( $_CONFIG['thumbsize'], $thumbDir );
       }
     }
   }

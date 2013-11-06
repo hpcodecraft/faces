@@ -18,8 +18,6 @@
     require_once( $controllerfile );
   }
 
-  if( $view == 'tag' or $view == 'error' ) $root = '..';
-
   // include templates
   require_once getView( 'partials/header' );
 
