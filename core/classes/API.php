@@ -120,7 +120,7 @@
         'face_hidden'    => ( $f->enabled == 1 ) ? 0 : 1,
         'face_category'  => $f->category,
         'face_filename'  => substr( $f->file, 0, -4 ),
-        'face_url'       => a('/faces/'.$f->file),
+        'face_url'       => a('faces/'.$f->file),
         'face_tags'      => implode( ', ', $f->tags ),
         'face_thumbnail' => a('thumbs/thumb_120_'.$f->file),
       );
