@@ -34,6 +34,7 @@ AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css a
 ErrorDocument 404 index.php?page=error&e=404
 
 RewriteEngine On                                                      # Turn on the rewriting engine
+RewriteBase /
 
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
