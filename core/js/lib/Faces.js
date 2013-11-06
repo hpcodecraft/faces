@@ -42,12 +42,6 @@
         }
       });
 
-      /*
-      $('.face_thumb').lazyload({
-        effect : 'fadeIn'
-      });
-      */
-
       Faces.changeCategory( Faces.options.category );
     },
 

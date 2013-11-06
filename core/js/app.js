@@ -4,7 +4,6 @@
 
 // @codekit-prepend 'lib/jquery-1.10.2.js'
 // @codekit-prepend 'lib/jquery.scrollTo.js'
-// @codekit-prepend 'lib/jquery.lazyload.js'
 
 // @codekit-prepend 'lib/hammer.js'
 // @codekit-prepend 'lib/jquery.hammer.js'
