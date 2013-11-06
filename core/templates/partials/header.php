@@ -40,7 +40,7 @@
       <a class="logo" href="<?=$_CONFIG['baseurl']?>"><h1><?=t('site-name')?></h1></a>
       <?php if( $view == 'single' or $view == 'error' ): ?>
       <div id="message"></div>
-      <?php elseif( $view == 'main' ): ?>
+      <?php elseif( $view == 'main' or $view == 'tag' ): ?>
       <input id="face-url" value="choose a <?=t('face-singular')?>" readonly />
       <?php endif; ?>
     </header>

@@ -58,7 +58,7 @@
             $tags = explode(',',$f['tags']);
             foreach( $tags as $t ) {
               $t    = mysql_real_escape_string( trim( $t ));
-              $sql  = "INSERT INTO tags (face,tag,source,enabled) VALUES(".$id.",'".$t."','import',0)";
+              $sql  = "INSERT INTO tags (face,tag,source,enabled) VALUES(".$id.",'".$t."','import',1)";
               @mysql_query( $sql, $db );
             }
           }
