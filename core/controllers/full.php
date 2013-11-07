@@ -26,7 +26,7 @@
         default: die('no image');
       }
 
-      readfile('../content/faces/'.$f->file);
+      readfile('content/faces/'.$f->file);
     }
     else header('location: '.$_CONFIG['baseurl'].'/error/404');
 

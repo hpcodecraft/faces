@@ -81,7 +81,7 @@
       $this->_dom->save( $file );
     }
 
-    public function print() {
+    public function xml() {
       return $this->_dom->saveXML();
     }
 

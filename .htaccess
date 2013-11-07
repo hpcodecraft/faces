@@ -44,18 +44,18 @@ RewriteCond %{HTTPS} on
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
-RewriteRule ^maintenance$      index.php?page=maintenance    [NC,L]      # Handle maintenance page
-RewriteRule ^/?$               index.php?page=main           [NC,L]      # Handle main page
-RewriteRule ^([0-9]+)?$        index.php?page=single&sub=$1  [NC,L]      # Handle faces
-RewriteRule ^tag/(.+)?$        index.php?page=tag&sub=$1     [NC,L]      # Handle tags
-RewriteRule ^developer?$       index.php?page=developer      [NC,L]      # Handle developer page
-RewriteRule ^imprint?$         index.php?page=imprint        [NC,L]      # Handle imprint page
-RewriteRule ^copyright?$       index.php?page=copyright      [NC,L]      # Handle copyright page
-RewriteRule ^submit?$          index.php?page=submit         [NC,L]      # Handle submission page
-RewriteRule ^([0-9]+)/thumb?$  index.php?page=thumb&sub=$1   [NC,L]      # Handle face thumbnails
-RewriteRule ^([0-9]+)/full?$   index.php?page=full&sub=$1    [NC,L]      # Handle face fullsizes
-RewriteRule ^error.*$          index.php?page=error          [NC,L]      # Handle errors
-RewriteRule ^feed.*$           index.php?page=feed           [NC,L]      # Handle feeds
-RewriteRule ^api/(.*)/(.*)?$   index.php?page=api&$1=$2      [NC,L]      # Handle api
-RewriteRule ^ajax?$            index.php?page=ajax           [NC,L]      # Handle ajax calls
-RewriteRule ^cookie?$          index.php?page=cookie         [NC,L]      # Handle cookie
+RewriteRule ^maintenance$       index.php?page=maintenance    [NC,L]      # Handle maintenance page
+RewriteRule ^/?$                index.php?page=main           [NC,L]      # Handle main page
+RewriteRule ^([0-9]+)?$         index.php?page=single&sub=$1  [NC,L]      # Handle faces
+RewriteRule ^tag/(.+)?$         index.php?page=tag&sub=$1     [NC,L]      # Handle tags
+RewriteRule ^developer?$        index.php?page=developer      [NC,L]      # Handle developer page
+RewriteRule ^imprint?$          index.php?page=imprint        [NC,L]      # Handle imprint page
+RewriteRule ^copyright?$        index.php?page=copyright      [NC,L]      # Handle copyright page
+RewriteRule ^submit?$           index.php?page=submit         [NC,L]      # Handle submission page
+RewriteRule ^([0-9]+)/thumb.*$  index.php?page=thumb&sub=$1   [NC,L]      # Handle face thumbnails
+RewriteRule ^([0-9]+)/full.*$   index.php?page=full&sub=$1    [NC,L]      # Handle face fullsizes
+RewriteRule ^error.*$           index.php?page=error          [NC,L]      # Handle errors
+RewriteRule ^feed.*$            index.php?page=feed           [NC,L]      # Handle feeds
+RewriteRule ^api/(.*)/(.*)?$    index.php?page=api&$1=$2      [NC,L]      # Handle api
+RewriteRule ^ajax?$             index.php?page=ajax           [NC,L]      # Handle ajax calls
+RewriteRule ^cookie?$           index.php?page=cookie         [NC,L]      # Handle cookie

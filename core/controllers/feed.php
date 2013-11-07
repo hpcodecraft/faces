@@ -33,6 +33,6 @@
     $rss->addItem( $title, $body, $link, $date, $guid, $enclosure, $length );
   }
 
-  $rss->print();
+  echo $rss->xml();
   exit;
 ?>
