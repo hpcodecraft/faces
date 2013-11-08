@@ -245,7 +245,7 @@ footer ul {
   width: 30.358823529411765%;
   margin: 0 1.4705882352941175%;
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1280px) {
   header .logo {
     display: inline;
     float: left;
@@ -266,18 +266,6 @@ footer ul {
     float: left;
     width: 97.05882352941177%;
     margin: 0 1.4705882352941175%;
-    /*
-      .pages {
-        .fullwidth;
-        li {
-          .column(2);
-          &:first-of-type {
-            .push(1);
-          }
-        }
-      }
-      */
-  
   }
   nav .pages,
   nav .api,
@@ -315,9 +303,10 @@ footer ul {
   .content {
     display: inline;
     float: left;
-    width: 87.05882352941177%;
+    width: 77.05882352941177%;
     margin: 0 1.4705882352941175%;
-    margin-left: 6.470588235294118%;
+    margin-left: 11.470588235294118%;
+    margin-right: 11.470588235294118%;
   }
   .meta .embed label {
     display: inline;
@@ -344,7 +333,36 @@ footer ul {
     margin: 0 1.4705882352941175%;
   }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
+  header .logo {
+    display: inline;
+    float: left;
+    width: 77.05882352941177%;
+    margin: 0 1.4705882352941175%;
+    margin-left: 11.470588235294118%;
+    margin-right: 11.470588235294118%;
+  }
+  header input,
+  header #message {
+    display: none;
+  }
+  nav h4.order,
+  nav ul.order {
+    display: inline;
+    float: left;
+    width: 77.05882352941177%;
+    margin: 0 1.4705882352941175%;
+    margin-left: 11.470588235294118%;
+    margin-right: 11.470588235294118%;
+  }
+  .content {
+    display: inline;
+    float: left;
+    width: 47.05882352941176%;
+    margin: 0 1.4705882352941175%;
+    margin-left: 26.470588235294116%;
+    margin-right: 26.470588235294116%;
+  }
   .meta .embed label {
     display: inline;
     float: left;
@@ -358,6 +376,16 @@ footer ul {
     margin: 0 1.4705882352941175%;
   }
   .meta .embed .hint {
+    display: none;
+  }
+  footer ul {
+    display: inline;
+    float: left;
+    width: 97.05882352941177%;
+    margin: 0 1.4705882352941175%;
+  }
+  #alert,
+  #alerttext {
     display: none;
   }
 }
@@ -404,6 +432,9 @@ header button {
   position: fixed;
   z-index: 1000;
   display: none;
+}
+nav {
+  margin-bottom: 1rem;
 }
 nav h4 {
   font-size: 1rem;
