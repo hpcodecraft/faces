@@ -126,6 +126,7 @@
   $os = detectOS();
   $copytext = t('copy-win');
   if( $os['name'] == 'Macintosh' ) $copytext = t('copy-mac');
+  $_CONFIG['copytext'] = $copytext;
 
   // set up ordering
   $_CONFIG['order'] = array(
