@@ -23,16 +23,29 @@
       Face.sort( Faces._sortHandler[by] );
       $('#faces').empty();
 
-      for( x in Face ) {
-        html = '\
-          <div id="face_'+Face[x].id+'" class="face" data-face="'+app.baseurl+'/content/faces/'+Face[x].file+'" data-id="'+Face[x].id+'">\
-            <div class="face_thumb" style="background-image:url('+app.baseurl+'/content/thumbs/thumb_120_'+Face[x].file+')"></div>\
-            <div class="face_orig"></div>\
-            <div class="gifmarker">►</div>\
-            <a class="permalink" href="'+app.baseurl+'/'+Face[x].id+'">➜</div>\
-          </div>';
+      // captain, we have a touch device here
+      if("ontouchstart" in document.documentElement) {
+        for( x in Face ) {
+          html = '\
+            <a id="face_'+Face[x].id+'" class="face" href="'+app.baseurl+'/'+Face[x].id+'" data-face="'+app.baseurl+'/content/faces/'+Face[x].file+'">\
+              <div class="face_thumb" style="background-image:url('+app.baseurl+'/content/thumbs/thumb_120_'+Face[x].file+')"></div>\
+              <div class="gifmarker">►</div>\
+            </a>';
+          $('#faces').append( html );
+        }
+      }
+      else {
+        for( x in Face ) {
+          html = '\
+            <div id="face_'+Face[x].id+'" class="face" data-face="'+app.baseurl+'/content/faces/'+Face[x].file+'" data-id="'+Face[x].id+'">\
+              <div class="face_thumb" style="background-image:url('+app.baseurl+'/content/thumbs/thumb_120_'+Face[x].file+')"></div>\
+              <div class="face_orig"></div>\
+              <div class="gifmarker">►</div>\
+              <a class="permalink" href="'+app.baseurl+'/'+Face[x].id+'">➜</div>\
+            </div>';
 
-        $('#faces').append( html );
+          $('#faces').append( html );
+        }
       }
 
       $('#faces .face').each( function () {

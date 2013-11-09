@@ -347,7 +347,9 @@ footer ul {
     display: none;
   }
   nav h4.order,
-  nav ul.order {
+  nav h4.category,
+  nav ul.order,
+  nav ul.category {
     display: inline;
     float: left;
     width: 77.05882352941177%;
@@ -433,7 +435,11 @@ header button {
   z-index: 1000;
   display: none;
 }
-nav {
+nav ul.pages,
+nav ul.category,
+nav ul.order,
+nav ul.api,
+nav ul.extra {
   margin-bottom: 1rem;
 }
 nav h4 {
@@ -444,9 +450,6 @@ nav h4 {
 }
 nav h4:first-letter {
   text-transform: uppercase;
-}
-nav ul {
-  margin-bottom: 1rem;
 }
 nav li {
   padding-left: 1.5rem;
@@ -575,6 +578,7 @@ nav a.order:not(.active):hover:before {
   position: relative;
   margin: .25rem;
   border: 3px solid #3986f9;
+  display: inline-block;
 }
 .face .face_thumb {
   position: absolute;
@@ -721,6 +725,7 @@ header.single #message {
   padding: .25rem .5rem;
   font-size: .9rem;
   position: relative;
+  text-overflow: ellipsis;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }

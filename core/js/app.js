@@ -85,15 +85,10 @@ $(function() {
     // scroll helper
     $('.scroller').hide();
 
-    // faces
-    $('#faces').hammer({ prevent_default:true }).on( 'tap', '.face', function(e){
-      $(this).find('.permalink').css('display','none !important');
-      var id  = $(this).data('id'),
-          url = app.baseurl+'/'+id;
-      document.location.href = url;
-    });
-
     // single face view
+
+    // header -> back to main page
+    $('header.single').hammer({ prevent_default:true }).bind( 'tap', function(){ document.location.href = app.baseurl; });
 
     // add tag form
     $('#show-new-tag').hammer({ prevent_default:true }).bind( 'tap', Tag.show );
@@ -108,10 +103,12 @@ $(function() {
         case 'right':
           document.location.href = app.baseurl+'/'+prev;
           break;
+        /*
         case 'up':
         case 'down':
           document.location.href = app.baseurl;
           break;
+        */
       }
     });
 
@@ -228,7 +225,7 @@ $(function() {
 
 
   // general stuff
-  $('#alertlabel').html(app.copytext);
+  //$('#alertlabel').html(app.copytext);
   // load faces
   Faces.restoreInitial();
 });
