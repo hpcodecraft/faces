@@ -29,6 +29,11 @@
   <meta property="og:image" content="<?=$meta['image']?>">
   <meta name="author" content="Volker Wieban">
 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="<?=t('site-name')?>" />
+  <link rel="apple-touch-icon" href="<?=a('gfx/favicon.png')?>">
+
   <link rel="stylesheet" href="<?=a('css/app-min.css')?>">
   <link rel="shortcut icon" href="<?=a('gfx/favicon.png')?>">
   <link rel="alternate" type="application/rss+xml" href="<?=$_CONFIG['baseurl']?>/feed/rss" title="<?=t('site-title')?>">
