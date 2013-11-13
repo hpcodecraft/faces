@@ -1,3 +1,102 @@
+<h2><?=t('site-name')?> - API Reference</h2>
+
+<h3>Before you read on</h3>
+<p>
+  If you only want to display the image in your client and already have the number/id of a face, you don't need to use the API at all.
+  Just add <b>/full</b> (for the full-sized image) or /<b>thumb</b> (for the thumbnail) to its URL to get it.
+</p>
+<p>
+  Example:<br>
+  <a target="_blank" href="<?=$_CONFIG['baseurl']?>/1/full"><?=$_CONFIG['baseurl']?>/1/full</a><br>
+  <a target="_blank" href="<?=$_CONFIG['baseurl']?>/1/thumb"><?=$_CONFIG['baseurl']?>/1/thumb</a>
+</p>
+
+<h3>How to use the API</h3>
+<p>
+  A typical API call looks like this:<br>
+  <strong><span style="color:limegreen;"><?=$_CONFIG['baseurl']?>/api</span>.<span style="color:red;">json</span>/<span style="color:orange;">tag</span><span style="color:magenta;">:happy</span></strong>
+</p>
+
+<h3>The URL parts explained:</h3>
+<p style="color:limegreen;">The API endpoint URL. It always stays the same, just copy it from above.</p>
+<p>
+  <ul style="color:red;">
+    <li>The output format. Valid formats are:</li>
+    <li>json - Returns JSON data</li>
+    <li>xml - Returns XML data</li>
+    <li>
+      jsonp - Returns JSON data wrapped into a callback function. If you want to use JSONP you'll also have to add the callback functions name like so:<br>
+      <?=$_CONFIG['baseurl']?>/api.jsonp:myJSONPcallback/tag:happy
+    </li>
+  </ul>
+</p>
+<p>
+  <ul style="color:orange;">
+    <li>The API command. Valid commands are:</li>
+    <li>id - Get one or more faces by their ids</li>
+    <li>tag - Get all faces matching a tag</li>
+    <li>tags - Get a list of all available tags</li>
+    <li>category - Get all faces in a category</li>
+    <li>categories - Get a list of all available categories</li>
+  </ul>
+</p>
+<p style="color:magenta;">
+  The URL parameter, depending on the command. Not every command needs a parameter - see the examples below for more info.
+</p>
+
+<h2>Examples</h2>
+
+<h3>Get data by id</h3>
+<p>See the example below to learn how to get a faces data by its id:</p>
+<?= callAPI('id:1') ?>
+<p>If you want to get data for multiple faces just pass several comma-separated ids like so:</p>
+<?= callAPI('id:23,42') ?>
+
+<h3>Get data by tag</h3>
+<p>You can also receive all faces that match a given tag. To do so, pass in the tag:</p>
+<?= callAPI('tag:happy') ?>
+
+<h3>Get list of all available tags</h3>
+<p>Call the URL from the example below to get a list of all available tags:</p>
+<?= callAPI('tags') ?>
+
+<h3>Get data by category</h3>
+<p>To get all faces in a given category you can pass in a category id:</p>
+<?= callAPI('category:1') ?>
+
+<h3>Get list of all available categories</h3>
+<p>See the example below to learn how to get a list of all categories:</p>
+<?= callAPI('categories') ?>
+
+
+
+
+
+<!--
+<h3 id="example1">Example 1</h3>
+Requested URL: <b><a href="<?=$_CONFIG['baseurl']?>/api/id/1"><?=$_CONFIG['baseurl']?>/api/id/1</a></b>
+&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/id/1&callback=myJSONPcallback" target="_blank">JSONP</a>
+&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/id/1&out=xml" target="_blank">XML</a><br/>
+JSON-response:
+<pre>{
+  "unix_date":1311462196,
+  "total_faces":"50",
+  "total_views":"123",
+  "items":[
+    {
+      "face_id":"1",
+      "face_views":"4",
+      "face_hidden":0,
+      "face_category":"pinkie pie",
+      "face_filename":"3cc43dc9",
+      "face_url":"http://ponyfac.es/faces/3cc43dc9.gif",
+      "face_tags":"pinkie pie, happy, clap",
+      "face_thumbnail":"http://ponyfac.es/thumbs/thumb_120_3cc43dc9.png"
+    }
+  ]
+}</pre>
+
+
 <ul>
 	<li><h1><?=t('site-name')?> - API Reference</h1></li>
 
@@ -8,18 +107,7 @@
     </ul>
   </li>
 
-	<li>
-		<h2>Before you read on</h2>
-		<ul>
-			<li>
-				If you already have the number/id of a face and only want to display the image in your client, you don't need to use the API at all.
-				Just add <b>/full</b> (for the full-sized image) or /<b>thumb</b> (for the thumbnail) to its URL to get it.
-			</li>
-			<li>Example:</li>
-			<li><a target="_blank" href="<?=$_CONFIG['baseurl']?>/1/full"><?=$_CONFIG['baseurl']?>/1/full</a></li>
-			<li><a target="_blank" href="<?=$_CONFIG['baseurl']?>/1/thumb"><?=$_CONFIG['baseurl']?>/1/thumb</a></li>
-		</ul>
-	</li>
+
 	<li>
 		<h2><a name="overview"></a>Overview</h2>
 			<ul>
@@ -74,12 +162,6 @@
 	<li>
 		<h2><a name="response"></a>API Response</h2>
 			<ul>
-				<?php if( $_CONFIG['baseurl'] != 'http://ponyfac.es' ): ?>
-				<li>
-					<h3>Note: All code samples listed here are taken from <a href="http://ponyfac.es" target="_blank">ponyfac.es</a>.</h3>
-					So don't be confused about the values, the API itself is identical on both sites.
-				</li>
-				<?php endif; ?>
 				<li>
 					<h3>Typical response</h3>
 					<ul>
@@ -136,212 +218,5 @@
 				</li>
 			</ul>
 	</li>
-
-	<li>
-		<h2><a name="examples"></a>Examples</h2>
-			<ul>
-				<li>
-					<h3 id="example1">Example 1</h3>
-					Requested URL: <b><a href="<?=$_CONFIG['baseurl']?>/api/id/1"><?=$_CONFIG['baseurl']?>/api/id/1</a></b>
-					&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/id/1&callback=myJSONPcallback" target="_blank">JSONP</a>
-					&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/id/1&out=xml" target="_blank">XML</a><br/>
-					JSON-response:
-					<pre>{
-  "unix_date":1311462196,
-  "total_faces":"50",
-  "total_views":"123",
-  "items":[
-    {
-      "face_id":"1",
-      "face_views":"4",
-      "face_hidden":0,
-      "face_category":"pinkie pie",
-      "face_filename":"3cc43dc9",
-      "face_url":"http://ponyfac.es/faces/3cc43dc9.gif",
-      "face_tags":"pinkie pie, happy, clap",
-      "face_thumbnail":"http://ponyfac.es/thumbs/thumb_120_3cc43dc9.png"
-    }
-  ]
-}</pre>
-				</li>
-
-				<li>
-					<h3 id="example2">Example 2</h3>
-					Requested URL: <b><a href="<?=$_CONFIG['baseurl']?>/api/id/23,42"><?=$_CONFIG['baseurl']?>/api/id/23,42</a></b>
-					&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/id/23,42&callback=myJSONPcallback" target="_blank">JSONP</a>
-					&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/id/23,42&out=xml" target="_blank">XML</a><br/>
-					JSON-response:
-					<pre>{
-  "unix_date":1311462567,
-  "total_faces":"50",
-  "total_views":"1234",
-  "items":[
-    {
-      "face_id":"23",
-      "face_views":"10",
-      "face_hidden":0,
-      "face_category":"twilight sparkle",
-      "face_filename":"88ef730a",
-      "face_url":"http://ponyfac.es/faces/88ef730a.jpg",
-      "face_tags":"twilight sparkle",
-      "face_thumbnail":"http://ponyfac.es/thumbs/thumb_120_88ef730a.png"
-    },
-    {
-      "face_id":"42",
-      "face_views":"20",
-      "face_hidden":0,
-      "face_category":"fluttershy",
-      "face_filename":"182465be",
-      "face_url":"http://ponyfac.es/faces/182465be.jpg",
-      "face_tags":"fluttershy",
-      "face_thumbnail":"http://ponyfac.es/thumbs/thumb_120_182465be.png"
-    }
-  ]
-}</pre>
-				</li>
-
-				<li>
-					<h3 id="example3">Example 3</h3>
-					Requested URL: <b><a href="<?=$_CONFIG['baseurl']?>/api/tag/happy"><?=$_CONFIG['baseurl']?>/api/tag/happy</a></b>
-					&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/tag/happy&callback=myJSONPcallback" target="_blank">JSONP</a>
-					&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/tag/happy&out=xml" target="_blank">XML</a><br/>
-					JSON-response:
-					<pre>{
-  "unix_date":1311463199,
-  "total_faces":"50",
-  "total_views":"1234",
-  "items":[
-    {
-      "face_id":"1",
-      "face_views":"4",
-      "face_hidden":0,
-      "face_category":"pinkie pie",
-      "face_filename":"3cc43dc9",
-      "face_url":"http://ponyfac.es/faces/3cc43dc9.gif",
-      "face_tags":"pinkie pie, happy, clap",
-      "face_thumbnail":"http://ponyfac.es/thumbs/thumb_120_3cc43dc9.png"
-    },
-    {
-      "face_id":"3",
-      "face_views":"16",
-      "face_hidden":0,
-      "face_category":"rainbow dash",
-      "face_filename":"80b6d653",
-      "face_url":"http://ponyfac.es/faces/80b6d653.gif",
-      "face_tags":"rainbow dash, happy, lol",
-      "face_thumbnail":"http://ponyfac.es/thumbs/thumb_120_80b6d653.png"
-    },
-    {
-      "face_id":"12",
-      "face_views":"4",
-      "face_hidden":0,
-      "face_category":"fluttershy",
-      "face_filename":"a476808d",
-      "face_url":"http://ponyfac.es/faces/a476808d.png",
-      "face_tags":"fluttershy, happy",
-      "face_thumbnail":"http://ponyfac.es/thumbs/thumb_120_a476808d.png"
-    }
-  ]
-}</pre>
-				</li>
-
-				<li>
-					<h3 id="example4">Example 4</h3>
-					Requested URL: <b><a href="<?=$_CONFIG['baseurl']?>/api/cat/fluttershy"><?=$_CONFIG['baseurl']?>/api/cat/fluttershy</a></b>
-					&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/cat/fluttershy&callback=myJSONPcallback" target="_blank">JSONP</a>
-					&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/cat/fluttershy&out=xml" target="_blank">XML</a><br/>
-					JSON-response:
-					<pre>{
-  "unix_date":1311464018,
-  "total_faces":"50",
-  "total_views":"1234",
-  "items":[
-    {
-      "face_id":"12",
-      "face_views":"4",
-      "face_hidden":0,
-      "face_category":"fluttershy",
-      "face_filename":"a476808d",
-      "face_url":"http://ponyfac.es/faces/a476808d.png",
-      "face_tags":"fluttershy, happy",
-      "face_thumbnail":"http://ponyfac.es/thumbs/thumb_120_a476808d.png"
-    },
-    {
-      "face_id":"14",
-      "face_views":"27",
-      "face_hidden":0,
-      "face_category":"fluttershy",
-      "face_filename":"2612bf13",
-      "face_url":"http://ponyfac.es/faces/2612bf13.jpg",
-      "face_tags":"fluttershy",
-      "face_thumbnail":"http://ponyfac.es/thumbs/thumb_120_a476808d.png"
-    }
-  ]
-}</pre>
-	</li>
-
-	<li>
-		<h3 id="example5">Example 5</h3>
-		Requested URL: <b><a href="<?=$_CONFIG['baseurl']?>/api/all/cats"><?=$_CONFIG['baseurl']?>/api/all/cats</a></b>
-		&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/all/cats&callback=myJSONPcallback" target="_blank">JSONP</a>
-		&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/all/cats&out=xml" target="_blank">XML</a><br/>
-		JSON-response:
-		<pre>{
-  "unix_date":1311612197,
-  "items":[
-    {
-      "cat_id":1,
-      "cat_name":"all",
-      "cat_displayname":"All Ponies"
-    },
-    {
-      "cat_id":2,
-      "cat_name":"rainbowdash",
-      "cat_displayname":"Rainbow Dash"
-    },
-    <b>[...]</b>
-    {
-      "cat_id":8,
-      "cat_name":"other",
-      "cat_displayname":"Other Ponies"
-    }
-  ]
-}</pre>
-		Explained JSON-response:
-		<ul>
-			<li><label>unix_date</label>unix timestamp of the response</li>
-			<li><label>items</label>array holding all categories</li>
-			<li><label>&nbsp;→ cat_id</label>unique ID of the category</li>
-			<li><label>&nbsp;→ cat_name</label>lowercase category name without spaces.</li>
-			<li><label>&nbsp;→ cat_displayname</label>full name of the category with spaces and other special characters</li>
-		</ul>
-	</li>
-
-	<li>
-		<h3 id="example6">Example 6</h3>
-		Requested URL: <b><a href="<?=$_CONFIG['baseurl']?>/api/all/tags"><?=$_CONFIG['baseurl']?>/api/all/tags</a></b>
-		&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/all/tags&callback=myJSONPcallback" target="_blank">JSONP</a>
-		&nbsp;<a href="<?=$_CONFIG['baseurl']?>/api/all/tags&out=xml" target="_blank">XML</a><br/>
-		JSON-response:
-		<pre>{
-  "unix_date":1311612476,
-  "items":[
-    {"tag_name":"pinkie pie"},
-    {"tag_name":"happy"},
-    {"tag_name":"clap"},
-    {"tag_name":"sweetie belle"},
-    {"tag_name":"tongue"},
-    {"tag_name":"taunt"},
-    {"tag_name":"tease"},
-    {"tag_name":"rainbow dash"},
-    {"tag_name":"lol"}
-  ]
-}</pre>
-		Explained JSON-response:
-		<ul>
-			<li><label>unix_date</label>unix timestamp of the response</li>
-			<li><label>items</label>array holding all tags</li>
-			<li><label>&nbsp;→ tag_name</label>lowercase tag name.</li>
-		</ul>
-	</li>
 </ul>
+-->

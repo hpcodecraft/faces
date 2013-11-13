@@ -103,12 +103,6 @@ $(function() {
         case 'right':
           document.location.href = app.baseurl+'/'+prev;
           break;
-        /*
-        case 'up':
-        case 'down':
-          document.location.href = app.baseurl;
-          break;
-        */
       }
     });
 
@@ -223,9 +217,14 @@ $(function() {
     });
   } // end of mouse bindings
 
+  $('.content.developer').find('button.format').click(function(){
+    var format = $(this).data('format'), self = $(this);
+    self.parent().find('button.format').removeClass('active');
+    self.addClass('active');
+    self.parents('.api-call').find('.api-result').hide();
+    self.parents('.api-call').find('.api-result.'+format).show();
+  });
 
-  // general stuff
-  //$('#alertlabel').html(app.copytext);
   // load faces
   Faces.restoreInitial();
 });

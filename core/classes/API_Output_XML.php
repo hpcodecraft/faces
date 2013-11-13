@@ -7,31 +7,37 @@
       header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
       header ("Content-Type:text/xml");
 
-      $xml = '<?xml version="1.0" encoding="utf-8"?><response>';
-
-      foreach( $data as $k => $v ) {
-        if( !is_array( $v )) {
-          $xml.= '<'.$k.'>'.$v.'</'.$k.'>';
-        }
-        else { // sublevel
-          $xml.= '<'.$k.'>';
-
-          foreach( $v as $i ) {
-            $xml.='<item>';
-            foreach( $i as $sk => $sv ) {
-            $xml.= '<'.$sk.'>'.$sv.'</'.$sk.'>';
+      // function to convert an array to XML using SimpleXML
+      function array_to_xml($array, &$xml) {
+        foreach($array as $key => $value) {
+          if(is_array($value)) {
+            if(!is_numeric($key)){
+              $subnode = $xml->addChild($key);
+              array_to_xml($value, $subnode);
+            } else {
+              $subnode = $xml->addChild('item_'.$key);
+              array_to_xml($value, $subnode);
             }
-            $xml.='</item>';
+          } else {
+            if(!is_numeric($key)){
+              $xml->addChild($key, $value);
+            }
+            else {
+             $xml->addChild('item_'.$key, $value);
+            }
           }
-
-          $xml.= '</'.$k.'>';
         }
       }
 
-      $xml.= '</response>';
+      // create simpleXML object
+      $xml = new SimpleXMLElement("<?xml version=\"1.0\"?><response></response>");
+      $node = $xml[0];
 
-      echo $xml;
+      // function call to convert array to xml
+      array_to_xml($data, $node);
+
+      // display XML to screen
+      echo $xml->asXML();
     }
   }
-
 ?>

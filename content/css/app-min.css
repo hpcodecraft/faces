@@ -543,19 +543,38 @@ nav a.order:not(.active):hover:before {
   color: #075ddf;
   text-decoration: underline;
 }
-.content.developer label {
-  display: block;
-  float: left;
-  width: 11rem;
-  font-weight: bold;
+.content.developer p {
+  margin-bottom: 1rem;
+}
+.content.developer .api-call {
+  position: relative;
 }
 .content.developer pre {
   border: 1px solid #3986f9;
   background: #b5d2fd;
   padding: 1rem;
   word-wrap: break-word;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin-bottom: 1rem;
+}
+.content.developer .api-formats {
+  border-bottom: 1px solid #075ddf;
+}
+.content.developer button.format {
+  margin-right: .5rem;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  outline: none;
+}
+.content.developer button.format.active {
+  background: #075ddf;
+  color: #b5d2fd;
+}
+.content.developer .api-result {
+  display: none;
+}
+.content.developer .api-result.json {
+  display: block;
 }
 .content.maintenance {
   width: 100%;

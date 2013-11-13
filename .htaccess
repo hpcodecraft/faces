@@ -56,6 +56,7 @@ RewriteRule ^([0-9]+)/thumb.*$  index.php?page=thumb&sub=$1   [NC,L]      # Hand
 RewriteRule ^([0-9]+)/full.*$   index.php?page=full&sub=$1    [NC,L]      # Handle face fullsizes
 RewriteRule ^error.*$           index.php?page=error          [NC,L]      # Handle errors
 RewriteRule ^feed.*$            index.php?page=feed           [NC,L]      # Handle feeds
-RewriteRule ^api/(.*)/(.*)?$    index.php?page=api&$1=$2      [NC,L]      # Handle api
 RewriteRule ^ajax?$             index.php?page=ajax           [NC,L]      # Handle ajax calls
 RewriteRule ^cookie?$           index.php?page=cookie         [NC,L]      # Handle cookie
+
+RewriteRule ^api\.(json|jsonp:.*|xml)/(.*)?$    index.php?page=api&format=$1&query=$2      [NC,L]      # Handle api

@@ -1,19 +1,24 @@
 <?php
-  // *fac.es API
+  // ----------------------------------------
+  // faces API endpoint
+  // ----------------------------------------
 
-  if( isset( $_GET['out'] ) and $_GET['out'] == 'xml' )
-    $output = new API_Output_XML();
-  else if( isset( $_GET['callback'] ))
-    $output = new API_Output_JSONP( $_GET['callback'] );
-  else
-    $output = new API_Output_JSON();
-
-  unset( $_GET['callback'] );
-  unset( $_GET['out'] );
+  $format = explode(':', $_GET['format']);
+  switch($format[0]) {
+    case 'json':
+      $output = new API_Output_JSON();
+      break;
+    case 'xml':
+      $output = new API_Output_XML();
+      break;
+    case 'jsonp':
+      $output = new API_Output_JSONP($format[1]);
+      break;
+    default: die('unknown output format');
+  }
 
   $api = new API( $output, $db );
-  $api->query( $_GET );
+  $api->query( $_GET['query'] );
   $api->output();
-
   exit;
 ?>

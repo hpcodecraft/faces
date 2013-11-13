@@ -14,95 +14,76 @@
 
     public function query( $q ) {
 
+      global $_CONFIG, $stats;
       $this->log( $q );
-      global $_CONFIG;
+
+      $q = explode(':', $q);
+      $command = $q[0];
+      $parameter = $q[1];
 
       $this->data = array(
-        'unix_date' => NOW,
+        'timestamp' => NOW,
+        'total_faces' => $stats['total_faces'],
+        'total_views' => $stats['total_views'],
       );
 
-      if( isset( $q['id'] )) { // search by id
-
-        $stats = getStats();
-        $this->data['total_faces'] = $stats['total_faces'];
-        $this->data['total_views'] = $stats['total_views'];
-        $this->data['items'] = array();
-
-        $error = false;
-        $ids = explode(',', $q['id'] );
-        foreach( $ids as $id ) { // check if ids are all valid
-          if( (int)$id == 0 ) {
-            $this->data = null;
-            $error = true;
-            break;
-          }
-        }
-        if( $error === false ) {
+      switch($command) {
+        case 'id': // search by id
+          $this->data['faces'] = array();
+          $ids = explode(',', $parameter );
           foreach( $ids as $id ) {
+            if( (int)$id == 0 ) {
+              $this->data = null;
+              break;
+            }
             $f = new Face( $id );
-            array_push( $this->data['items'], $this->mapFaceData( $f ));
+            array_push( $this->data['faces'], $this->mapFaceData( $f ));
           }
-        }
-      }
-      else if( isset( $q['tag'] )) { // search by tag
+          break;
 
-        $stats = getStats();
-        $this->data['total_faces'] = $stats['total_faces'];
-        $this->data['total_views'] = $stats['total_views'];
-        $this->data['items'] = array();
-
-        $tags = mysql_real_escape_string( $q['tag'] );
-
-        $sql = 'SELECT DISTINCT face FROM tags WHERE tag LIKE \'%'.mysql_real_escape_string( $q['tag'] ).'%\'';
-        $result = mysql_query( $sql, $this->db );
-        while( $data = mysql_fetch_assoc( $result )) {
-          array_push( $this->data['items'], $this->mapFaceData( new Face( $data['face'] )));
-        };
-      }
-      else if( isset( $q['cat'] )) { // search by category
-
-        $stats = getStats();
-        $this->data['total_faces'] = $stats['total_faces'];
-        $this->data['total_views'] = $stats['total_views'];
-        $this->data['items'] = array();
-
-        $allowed = array_keys( $_CONFIG['category'] );
-        if( in_array( $q['cat'], $allowed )) {
-          $sql = 'SELECT id FROM faces WHERE category=\''.mysql_real_escape_string( $q['cat'] ).'\'';
+        case 'tag': // search by tag
+          $this->data['faces'] = array();
+          $tags = mysql_real_escape_string( $parameter );
+          $sql = 'SELECT DISTINCT face FROM tags WHERE tag LIKE \'%'.$tags.'%\'';
           $result = mysql_query( $sql, $this->db );
           while( $data = mysql_fetch_assoc( $result )) {
-            array_push( $this->data['items'], $this->mapFaceData( new Face( $data['id'] )));
+            array_push( $this->data['faces'], $this->mapFaceData( new Face( $data['face'] )));
           };
-        }
-        else {
-          $this->data = null;
-        }
-      }
-      else if( isset( $q['all'] )) { // search all (tags/cats)
-        $this->data['items'] = array();
-        if( $q['all'] == 'cats' ) {
-          $i = 1;
-          foreach( $_CONFIG['category'] as $c => $cd ) {
-            array_push( $this->data['items'], array(
-              'cat_id' => $i,
-              'cat_name' => $c,
-              'cat_displayname' => $cd,
-            ));
-            $i++;
+          break;
+
+        case 'category': // search by category id
+          $this->data['faces'] = array();
+          $sql = 'SELECT id FROM faces WHERE category=\''.mysql_real_escape_string( $parameter ).'\'';
+          $result = mysql_query( $sql, $this->db );
+          while( $data = mysql_fetch_assoc( $result )) {
+            array_push( $this->data['faces'], $this->mapFaceData( new Face( $data['id'] )));
           }
-        }
-        else if( $q['all'] == 'tags' ) {
-          $tags = array();
+          break;
+
+        case 'tags': // return all available tags
+          $this->data['tags'] = array();
           $sql = 'SELECT DISTINCT tag FROM tags ORDER BY tag ASC';
           $result = mysql_query( $sql, $this->db );
-
           while( $data = mysql_fetch_array( $result )) {
-            array_push( $this->data['items'], array('tag_name' => $data[0] ));
+            array_push( $this->data['tags'], $data[0] );
           }
-        }
-        else {
-          $this->data = null;
-        }
+          break;
+
+        case 'categories': // return all available categories
+
+          $this->data['category'] = array();
+          foreach($_CONFIG['category'] as $c) {
+            $category = array(
+              'id'      => $c->id,
+              'name'    => $c->name,
+              'weight'  => $c->weight,
+            );
+            array_push($this->data['category'], $category);
+          }
+          break;
+
+
+        default: die('unknown command');
       }
     }
 
@@ -111,18 +92,19 @@
     }
 
     private function mapFaceData( Face $f ) {
-
       global $_CONFIG;
-
       $fData = array(
-        'face_id'        => $f->id,
-        'face_views'     => $f->views,
-        'face_hidden'    => ( $f->enabled == 1 ) ? 0 : 1,
-        'face_category'  => $f->category,
-        'face_filename'  => substr( $f->file, 0, -4 ),
-        'face_url'       => a('faces/'.$f->file),
-        'face_tags'      => implode( ', ', $f->tags ),
-        'face_thumbnail' => a('thumbs/thumb_120_'.$f->file),
+        'id'        => $f->id,
+        'views'     => $f->views,
+        'enabled'   => $f->enabled,
+        'link'      => $_CONFIG['baseurl'].'/'.$f->id,
+        'image'     => $_CONFIG['baseurl'].'/'.$f->id.'/full',
+        'thumbnail' => $_CONFIG['baseurl'].'/'.$f->id.'/thumb',
+        'category'  => array(
+          'id'        => $f->category,
+          'name'      => $_CONFIG['category'][$f->category]->name,
+        ),
+        'tags'      => $f->tags,
       );
       return $fData;
     }
@@ -131,7 +113,6 @@
       $time = time();
       $ip = $_SERVER['REMOTE_ADDR'];
       $query = mysql_real_escape_string( htmlentities( $_SERVER['QUERY_STRING'] ));
-
       $sql = 'INSERT INTO log_api (`time`,`ip`,`query`) VALUES ('.$time.',\''.$ip.'\',\''.$query.'\')';
       mysql_query( $sql, $this->db );
     }

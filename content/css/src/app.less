@@ -274,11 +274,12 @@ nav {
       text-decoration: underline;
     }
 
-    label {
-      display: block;
-      float: left;
-      width: 11rem;
-      font-weight: bold;
+    p {
+      margin-bottom: 1rem;
+    }
+
+    .api-call {
+      position: relative;
     }
 
     pre {
@@ -286,9 +287,32 @@ nav {
       background: @light;
       padding: 1rem;
       word-wrap: break-word;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       margin-bottom: 1rem;
     }
+
+    .api-formats {
+      border-bottom: 1px solid @dark;
+    }
+
+    button.format {
+      margin-right: .5rem;
+      border-bottom: none;
+      border-radius: 5px 5px 0 0;
+      outline: none;
+
+      &.active {
+        background: @dark;
+        color: @light;
+      }
+    }
+
+    .api-result {
+      display: none;
+
+      &.json { display: block; }
+    }
+
   } // .content.developer
 
   &.maintenance {
