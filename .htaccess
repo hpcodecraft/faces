@@ -3,8 +3,6 @@ order allow,deny
 deny from all
 </Files>
 
-#AddType text/cache-manifest .appcache
-
 Header unset ETag
 FileETag none
 
@@ -30,8 +28,6 @@ Header append Cache-Control "public, must-revalidate, proxy-revalidate"
 AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript application/json
 </IfModule>
 # END Gzip
-
-ErrorDocument 404 index.php?page=error&e=404
 
 RewriteEngine On                                                      # Turn on the rewriting engine
 RewriteBase /
