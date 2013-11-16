@@ -17,6 +17,7 @@ You want to setup a page like [ponyfac.es](http://ponyfaces) or [lauerfac.es](ht
     2. Save the file to **admin/.htpasswd**
     3. Open the file **admin/.htaccess**
     4. Change line 3 to point to the .htpasswd file
+4. If you install into a subfolder of your webspace, you'll also have to edit the RewriteBase in the .htaccess file. Set it to match your folder, e.g. if you installed to http://example.com/reactions change the line to `RewriteBase /reactions/`
 
 Finally, upload all the files to your webserver.
 
