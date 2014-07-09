@@ -10,7 +10,7 @@ You want to setup a page like [ponyfac.es](http://ponyfaces) or [lauerfac.es](ht
 3. Import the file **install/db.sql** into the database.
 
 ### Configuration
-1. Duplicate **/config/localhost.php** and name it like your host name, e.g. **/config/an.example.com**
+1. Duplicate **/config/localhost.php** and name it like your host name, e.g. **/config/an.example.com.php**
 2. Open the config file with a text editor and change it according to your site.
 3. Secure the admin area of your installation with a password:
     1. Generate a .htpasswd file online, for example at [htaccesstools.com](http://www.htaccesstools.com/htpasswd-generator/)
