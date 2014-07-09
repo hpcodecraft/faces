@@ -196,96 +196,96 @@ button {
 header .logo {
   display: inline;
   float: left;
-  width: 36.76470588235294%;
-  margin: 0 2.450980392156863%;
+  width: 36.76470588%;
+  margin: 0 2.45098039%;
 }
 header .message {
   display: inline;
   float: left;
-  width: 36.76470588235294%;
-  margin: 0 2.450980392156863%;
+  width: 36.76470588%;
+  margin: 0 2.45098039%;
 }
 header .misc {
   display: inline;
   float: left;
-  width: 11.76470588235294%;
-  margin: 0 2.450980392156863%;
+  width: 11.76470588%;
+  margin: 0 2.45098039%;
 }
 nav a {
   display: inline;
   float: left;
-  width: 15.098039215686274%;
-  margin: 0 2.450980392156863%;
+  width: 15.09803922%;
+  margin: 0 2.45098039%;
 }
 .form-actions {
   display: inline;
   float: left;
-  width: 95.09803921568627%;
-  margin: 0 2.450980392156863%;
+  width: 95.09803922%;
+  margin: 0 2.45098039%;
 }
 section .col {
   display: inline;
   float: left;
-  width: 28.431372549019606%;
-  margin: 0 2.450980392156863%;
+  width: 28.43137255%;
+  margin: 0 2.45098039%;
 }
 section tr {
   display: inline;
   float: left;
-  width: 95.09803921568627%;
-  margin: 0 2.450980392156863%;
+  width: 95.09803922%;
+  margin: 0 2.45098039%;
 }
 section th,
 section td {
   display: inline;
   float: left;
-  width: 28.431372549019606%;
-  margin: 0 2.450980392156863%;
+  width: 28.43137255%;
+  margin: 0 2.45098039%;
 }
 @media screen and (max-width: 910px) {
   header .logo {
     display: inline;
     float: left;
-    width: 95.09803921568627%;
-    margin: 0 2.450980392156863%;
+    width: 95.09803922%;
+    margin: 0 2.45098039%;
   }
   header .message {
     display: inline;
     float: left;
-    width: 78.43137254901961%;
-    margin: 0 2.450980392156863%;
+    width: 78.43137255%;
+    margin: 0 2.45098039%;
   }
   header .misc {
     display: inline;
     float: left;
-    width: 11.76470588235294%;
-    margin: 0 2.450980392156863%;
+    width: 11.76470588%;
+    margin: 0 2.45098039%;
   }
   nav a {
     display: inline;
     float: left;
-    width: 28.431372549019606%;
-    margin: 0 2.450980392156863%;
+    width: 28.43137255%;
+    margin: 0 2.45098039%;
   }
   section .col {
     display: inline;
     float: left;
-    width: 45.09803921568628%;
-    margin: 0 2.450980392156863%;
+    width: 45.09803922%;
+    margin: 0 2.45098039%;
   }
 }
 @media screen and (max-width: 580px) {
   nav a {
     display: inline;
     float: left;
-    width: 45.09803921568628%;
-    margin: 0 2.450980392156863%;
+    width: 45.09803922%;
+    margin: 0 2.45098039%;
   }
   section .col {
     display: inline;
     float: left;
-    width: 95.09803921568627%;
-    margin: 0 2.450980392156863%;
+    width: 95.09803922%;
+    margin: 0 2.45098039%;
   }
 }
 body {

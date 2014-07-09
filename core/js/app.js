@@ -1,17 +1,3 @@
-// This file needs to be minified to core/js/min/app-min.js
-// If you're using Codekit you're lucky and everything is done automatically.
-// If not, include the following files before:
-
-// @codekit-prepend 'lib/jquery-1.10.2.js'
-// @codekit-prepend 'lib/jquery.scrollTo.js'
-
-// @codekit-prepend 'lib/hammer.js'
-// @codekit-prepend 'lib/jquery.hammer.js'
-// @codekit-prepend 'lib/jquery.specialevent.hammer.js'
-
-// @codekit-prepend 'lib/Faces.js'
-// @codekit-prepend 'lib/Tag.js'
-
 $(function() {
 
   function handleSearch( e ) {

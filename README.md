@@ -10,7 +10,7 @@ You want to setup a page like [ponyfac.es](http://ponyfaces) or [lauerfac.es](ht
 3. Import the file **install/db.sql** into the database.
 
 ### Configuration
-1. Duplicate **/config/localhost.php** and name it like your host name, e.g. **/config/an.example.com**
+1. Duplicate **/config/localhost.php** and name it like your host name, e.g. **/config/an.example.com.php**
 2. Open the config file with a text editor and change it according to your site.
 3. Secure the admin area of your installation with a password:
     1. Generate a .htpasswd file online, for example at [htaccesstools.com](http://www.htaccesstools.com/htpasswd-generator/)
@@ -24,9 +24,14 @@ Finally, upload all the files to your webserver.
 ## A new outfit
 
 ### CSS
-To change the appearance of your site, you will have to edit the file **/content/css/app-min.css** and **/content/css/admin-min.css** for the admin frontend.
 
-To make things easier you can also edit the [less](http://lesscss.org) source files in **/content/css/src** and overwrite the compiled CSS.
+The stylesheets are written in [LESS](http://lesscss.org), so you'll need to compile them to CSS if you change anything. To make this easier I've provided a Gruntfile to automate the process (same goes for the JS files, the Gruntfile covers these, too).
+
+To get started, install the necessary npm modules:
+    `npm install`
+
+To build everything just type
+    `grunt`
 
 ### Templates
 Templates in **/core/templates** can be overridden by creating a file with the same name in **/content/templates**.

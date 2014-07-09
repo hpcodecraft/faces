@@ -1,10 +1,3 @@
-// This file needs to be minified to core/js/min/admin-min.js
-// If you're using Codekit you're lucky and everything is done automatically.
-// If not, include the following files before:
-
-// @codekit-prepend 'lib/jquery-1.10.2.js'
-// @codekit-prepend 'lib/jquery.scrollTo.js'
-
 var Category = {
 
   add: function() {

@@ -1,4 +1,5 @@
 .DS_Store
 ._*
 .htaccess.localhost
-codekit-config.json
+node_modules
+todo.txt
