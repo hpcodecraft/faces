@@ -29,7 +29,7 @@
     <?php if( $view == 'main' or $view == 'tag' ): ?>
 
       <div class="search">
-        <input class="query" type="text" id="search" placeholder="search"/>
+        <input class="query" type="text" id="search" placeholder="search" autofocus />
         <div class="clear" id="search-clear">✖</div>
       </div>
 
