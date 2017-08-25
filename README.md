@@ -1,6 +1,6 @@
 # Create your own reactionface collection!
 
-You want to setup a page like [ponyfac.es](http://ponyfaces) or [lauerfac.es](http://lauerfac.es)? Well, you've come to the right place!
+You want to setup a page like [ponyfac.es](http://ponyfaces.hpcodecraft.me) or [lauerfac.es](http://lauerfaces.hpcodecraft.me)? Well, you've come to the right place!
 
 ## How to get started:
 
