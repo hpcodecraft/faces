@@ -6,6 +6,7 @@
 
 		public function __construct( $namespace ) {
 			$this->namespace = $namespace;
+			$this->data = new \stdClass();
 			$this->data->order = 'id';
 			$this->data->category = 0;
       $this->save();

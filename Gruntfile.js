@@ -1,23 +1,23 @@
 module.exports = function(grunt) {
-
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    pkg: grunt.file.readJSON("package.json"),
 
     less: {
       development: {
         files: {
-          "content/css/app.css": "content/css/src/app-concat.less",
-          "content/css/admin.css": "content/css/src/admin-concat.less",
+          "src/content/css/app.css": "src/content/css/src/app-concat.less",
+          "src/content/css/admin.css": "src/content/css/src/admin-concat.less"
         }
       },
       production: {
         options: {
           compress: true,
-          cleancss: true,
+          cleancss: true
         },
         files: {
-          "content/css/app-min.css": "content/css/src/app-concat.less",
-          "content/css/admin-min.css": "content/css/src/admin-concat.less",
+          "src/content/css/app-min.css": "src/content/css/src/app-concat.less",
+          "src/content/css/admin-min.css":
+            "src/content/css/src/admin-concat.less"
         }
       }
     },
@@ -30,24 +30,24 @@ module.exports = function(grunt) {
       },
       app: {
         src: [
-          'core/js/lib/jquery-1.10.2.js',
-          'core/js/lib/jquery.scrollTo.js',
-          'core/js/lib/hammer.js',
-          'core/js/lib/jquery.hammer.js',
-          'core/js/lib/jquery.specialevent.hammer.js',
-          'core/js/lib/Faces.js',
-          'core/js/lib/Tag.js',
-          'core/js/app.js',
+          "src/core/js/lib/jquery-1.10.2.js",
+          "src/core/js/lib/jquery.scrollTo.js",
+          "src/core/js/lib/hammer.js",
+          "src/core/js/lib/jquery.hammer.js",
+          "src/core/js/lib/jquery.specialevent.hammer.js",
+          "src/core/js/lib/Faces.js",
+          "src/core/js/lib/Tag.js",
+          "src/core/js/app.js"
         ],
-        dest: 'core/js/min/app.js',
+        dest: "src/core/js/min/app.js"
       },
       admin: {
         src: [
-          'core/js/lib/jquery-1.10.2.js',
-          'core/js/lib/jquery.scrollTo.js',
-          'core/js/admin.js',
+          "src/core/js/lib/jquery-1.10.2.js",
+          "src/core/js/lib/jquery.scrollTo.js",
+          "src/core/js/admin.js"
         ],
-        dest: 'core/js/min/admin.js',
+        dest: "src/core/js/min/admin.js"
       }
     },
 
@@ -56,20 +56,19 @@ module.exports = function(grunt) {
         banner: ""
       },
       app: {
-        src: 'core/js/min/app.js',
-        dest: 'core/js/min/app-min.js',
+        src: "src/core/js/min/app.js",
+        dest: "src/core/js/min/app-min.js"
       },
       admin: {
-        src: 'core/js/min/admin.js',
-        dest: 'core/js/min/admin-min.js',
-      },
-    },
-
+        src: "src/core/js/min/admin.js",
+        dest: "src/core/js/min/admin-min.js"
+      }
+    }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks("grunt-contrib-less");
+  grunt.loadNpmTasks("grunt-contrib-concat");
+  grunt.loadNpmTasks("grunt-contrib-uglify");
 
-  grunt.registerTask('default', ['less', 'concat', 'uglify']);
+  grunt.registerTask("default", ["less", "concat", "uglify"]);
 };

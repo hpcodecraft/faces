@@ -1,6 +1,6 @@
 AuthName "Y U NO LOG IN?"
 AuthType Basic
-AuthUserFile /path/to/your/.htpasswd
+AuthUserFile /run/secrets/admin_login
 AuthGroupFile /dev/null
 require valid-user
 

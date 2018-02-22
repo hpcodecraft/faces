@@ -4,7 +4,7 @@
   // ---------------------------------------------------
 
   $_CONFIG = array(
-    'baseurl' => 'http://localhost:8888/Github/faces', // full base URL, without trailing slash
+    'baseurl' => 'http://localhost', // full base URL, without trailing slash
     'admin-email' => 'johndoe@gmail.com', // notifications about submissions will be sent there
     'cookie' => 'reactionfaces', // cookie namespace
     'thumbsize' => 120, //array( 120 ), // thumbnail sizes (you don't need to change this usually)
@@ -25,9 +25,9 @@
   );
 
   // your database connection details
-  $DBHOST = 'localhost';
-  $DBUSER = 'root';
-  $DBPASS = 'root';
-  $DBNAME = 'reactionfaces';
+  $DBHOST = 'db';
+  $DBUSER = 'mysql';
+  $DBPASS = 'mysql';
+  $DBNAME = 'faces';
 
 ?>
