@@ -1,0 +1,46 @@
+version: '3.1'
+
+services:
+  web:
+    build: .
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 80:80
+    secrets:
+      - admin_login
+    volumes:
+      - './src:/var/www/html'
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+      MYSQL_DATABASE: faces
+    volumes:
+      - ./setup:/docker-entrypoint-initdb.d # Copy db dump into container and install it
+      - db_data:/var/lib/mysql # persist mySQL data
+
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin:4.7
+      restart: always
+      ports:
+          - 8080:80
+      environment:
+          MYSQL_USER: mysql
+          MYSQL_PASSWORD: mysql
+          MYSQL_ROOT_PASSWORD: root
+          PMA_HOST: db
+      depends_on:
+        - db
+
+volumes:
+    db_data:
+
+secrets:
+    admin_login:
+        file: ./secrets/admin_login.htpasswd
