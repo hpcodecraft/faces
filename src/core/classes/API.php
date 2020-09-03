@@ -43,19 +43,19 @@
 
         case 'tag': // search by tag
           $this->data['faces'] = array();
-          $tags = mysql_real_escape_string( $parameter );
+          $tags = mysqli_real_escape_string( $this->db, $parameter );
           $sql = 'SELECT DISTINCT face FROM tags WHERE tag LIKE \'%'.$tags.'%\'';
-          $result = mysql_query( $sql, $this->db );
-          while( $data = mysql_fetch_assoc( $result )) {
+          $result = mysqli_query( $this->db, $sql );
+          while( $data = mysqli_fetch_assoc( $result )) {
             array_push( $this->data['faces'], $this->mapFaceData( new Face( $data['face'] )));
           };
           break;
 
         case 'category': // search by category id
           $this->data['faces'] = array();
-          $sql = 'SELECT id FROM faces WHERE category=\''.mysql_real_escape_string( $parameter ).'\'';
-          $result = mysql_query( $sql, $this->db );
-          while( $data = mysql_fetch_assoc( $result )) {
+          $sql = 'SELECT id FROM faces WHERE category=\''.mysqli_real_escape_string( $this->db, $parameter ).'\'';
+          $result = mysqli_query( $this->db, $sql );
+          while( $data = mysqli_fetch_assoc( $result )) {
             array_push( $this->data['faces'], $this->mapFaceData( new Face( $data['id'] )));
           }
           break;
@@ -63,8 +63,8 @@
         case 'tags': // return all available tags
           $this->data['tags'] = array();
           $sql = 'SELECT DISTINCT tag FROM tags ORDER BY tag ASC';
-          $result = mysql_query( $sql, $this->db );
-          while( $data = mysql_fetch_array( $result )) {
+          $result = mysqli_query( $this->db, $sql );
+          while( $data = mysqli_fetch_array( $result )) {
             array_push( $this->data['tags'], $data[0] );
           }
           break;
@@ -112,9 +112,9 @@
     private function log() {
       $time = time();
       $ip = $_SERVER['REMOTE_ADDR'];
-      $query = mysql_real_escape_string( htmlentities( $_SERVER['QUERY_STRING'] ));
+      $query = mysqli_real_escape_string( $this->db, htmlentities( $_SERVER['QUERY_STRING'] ));
       $sql = 'INSERT INTO log_api (`time`,`ip`,`query`) VALUES ('.$time.',\''.$ip.'\',\''.$query.'\')';
-      mysql_query( $sql, $this->db );
+      mysqli_query( $this->db, $sql );
     }
   }
 

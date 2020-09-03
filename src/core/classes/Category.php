@@ -17,14 +17,14 @@ class Category {
     global $db;
     // get max weight
     $sql = "SELECT MAX(weight)+1 FROM categories";
-    $rs = mysql_query( $sql, $db );
-    $weight = mysql_result($rs, 0, 0);
+    $rs = mysqli_query( $db, $sql );
+    $weight = mysqli_fetch_field( $rs );
     // save new category
     $sql = "INSERT INTO categories (id, name, weight) VALUES (null, '".$args['name']."', ".$weight.")";
-    $rs = mysql_query( $sql, $db );
-    $id = mysql_insert_id();
+    $rs = mysqli_query( $db, $sql );
+    $id = mysqli_insert_id();
 
-    if( mysql_affected_rows() == 1 ) {
+    if( mysqli_affected_rows() == 1 ) {
       $args['success'] = true;
       $args['msg'] = 'Added category "'.$args['name'].'".';
       $args['id'] = $id;
@@ -42,9 +42,9 @@ class Category {
 
     global $db;
     $sql = "UPDATE categories SET name='".$args['name']."' WHERE id=".$args['id'];
-    $rs = mysql_query( $sql, $db );
+    $rs = mysqli_query( $db, $sql );
 
-    if( mysql_affected_rows() == 1 ) {
+    if( mysqli_affected_rows() == 1 ) {
       $args['success'] = true;
       $args['msg'] = 'Saved new category name "'.$args['name'].'".';
     }
@@ -61,9 +61,9 @@ class Category {
 
     global $db;
     $sql = "DELETE FROM categories WHERE id=".$args['id'];
-    $rs = mysql_query( $sql, $db );
+    $rs = mysqli_query( $db, $sql );
 
-    if( mysql_affected_rows() == 1 ) {
+    if( mysqli_affected_rows() == 1 ) {
       $args['success'] = true;
       $args['msg'] = 'Deleted category "'.$args['name'].'".';
     }
@@ -83,21 +83,21 @@ class Category {
     global $db;
     // select weight of category
     $sql = "SELECT weight FROM categories WHERE id=".$id;
-    $rs = mysql_query( $sql, $db );
-    $weight = mysql_result( $rs, 0, 0 );
+    $rs = mysqli_query( $db, $sql );
+    $weight = mysqli_fetch_field( $rs );
 
 
     // select weight of prior category
     $sql = "SELECT id, weight FROM categories WHERE weight<(SELECT weight FROM categories WHERE id=".$id.") ORDER BY weight DESC LIMIT 0,1";
-    $rs = mysql_query( $sql, $db );
-    $changeWith = mysql_fetch_assoc( $rs );
+    $rs = mysqli_query( $db, $sql );
+    $changeWith = mysqli_fetch_assoc( $rs );
 
     // switch weights
     $sql = "UPDATE categories SET weight=".$weight." WHERE id=".$changeWith['id'];
-    $rs = mysql_query( $sql, $db );
+    $rs = mysqli_query( $db, $sql );
 
     $sql = "UPDATE categories SET weight=".$changeWith['weight']." WHERE id=".$id;
-    $rs = mysql_query( $sql, $db );
+    $rs = mysqli_query( $db, $sql );
 
     $tmp = $weight;
     $weight = $changeWith['weight'];
@@ -120,21 +120,21 @@ class Category {
     global $db;
     // select weight of category
     $sql = "SELECT weight FROM categories WHERE id=".$id;
-    $rs = mysql_query( $sql, $db );
-    $weight = mysql_result( $rs, 0, 0 );
+    $rs = mysqli_query( $db, $sql );
+    $weight = mysqli_fetch_field( $rs );
 
 
     // select weight of next category
     $sql = "SELECT id, weight FROM categories WHERE weight>(SELECT weight FROM categories WHERE id=".$id.") ORDER BY weight ASC LIMIT 0,1";
-    $rs = mysql_query( $sql, $db );
-    $changeWith = mysql_fetch_assoc( $rs );
+    $rs = mysqli_query( $db, $sql );
+    $changeWith = mysqli_fetch_assoc( $rs );
 
     // switch weights
     $sql = "UPDATE categories SET weight=".$weight." WHERE id=".$changeWith['id'];
-    $rs = mysql_query( $sql, $db );
+    $rs = mysqli_query( $db, $sql );
 
     $sql = "UPDATE categories SET weight=".$changeWith['weight']." WHERE id=".$id;
-    $rs = mysql_query( $sql, $db );
+    $rs = mysqli_query( $db, $sql );
 
     $tmp = $weight;
     $weight = $changeWith['weight'];

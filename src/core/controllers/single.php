@@ -11,26 +11,26 @@
 
   // increment views
   $f->views++;
-  mysql_query('UPDATE faces SET views='.$f->views.',last_view='.NOW.' WHERE id='.$f->id, $db );
+  mysqli_query($db, 'UPDATE faces SET views='.$f->views.',last_view='.NOW.' WHERE id='.$f->id );
 
   // get id of previous face
   $sql  = "SELECT id FROM faces WHERE id < ".$f->id." AND enabled=1 ORDER BY id DESC LIMIT 0,1";
-  $rs   = mysql_query( $sql, $db );
-  $prev = @mysql_result( $rs, 0, 0 );
+  $rs   = mysqli_query( $db, $sql );
+  $prev = @mysqli_fetch_field( $rs );
   if( $prev == false ) {
     $sql  = "SELECT MAX(id) FROM faces WHERE enabled=1";
-    $rs   = mysql_query( $sql, $db );
-    $prev = mysql_result( $rs, 0, 0 );
+    $rs   = mysqli_query( $db, $sql );
+    $prev = mysqli_fetch_field( $rs );
   }
 
   // get id of next face
   $sql  = "SELECT id FROM faces WHERE id > ".$f->id." AND enabled=1 ORDER BY id ASC LIMIT 0,1";
-  $rs   = mysql_query( $sql, $db );
-  $next = @mysql_result( $rs, 0, 0 );
+  $rs   = mysqli_query( $db, $sql );
+  $next = @mysqli_fetch_field( $rs );
   if( $next == false ) {
     $sql  = "SELECT MIN(id) FROM faces WHERE enabled=1";
-    $rs   = mysql_query( $sql, $db );
-    $next = mysql_result( $rs, 0, 0 );
+    $rs   = mysqli_query( $db, $sql );
+    $next = mysqli_fetch_field( $rs );
   }
 
 ?>

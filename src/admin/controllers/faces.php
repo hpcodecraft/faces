@@ -11,19 +11,19 @@
       else $enabled = 0;
 
       $sql = "UPDATE faces SET enabled=".$enabled.", category='".$data['category']."' WHERE id=".$id;
-      mysql_query($sql);
+      mysqli_query( $db, $sql );
     }
   }
 
   // load from db
   $faces = array();
 
-  $rs = mysql_query( 'SELECT id FROM faces ORDER BY id DESC', $db );
-  while ($data = mysql_fetch_array( $rs, MYSQL_ASSOC )) {
+  $rs = mysqli_query( $db, 'SELECT id FROM faces ORDER BY id DESC' );
+  while ($data = mysqli_fetch_array( $rs, MYSQLi_ASSOC )) {
     array_push( $faces, $data['id'] );
   }
-  mysql_free_result($rs);
-  mysql_close();
+  mysqli_free_result($rs);
+  mysqli_close();
 
   // sort faces into different arrays
   $facesNewTag    = array();

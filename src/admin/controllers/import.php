@@ -23,8 +23,8 @@
       if( $type == 'jpeg' ) $type = 'jpg';
 
       $sql = "SELECT id, tags FROM tag_suggestions WHERE file='".$file."'";
-      $rs = mysql_query( $sql, $db );
-      $data = mysql_fetch_assoc( $rs );
+      $rs = mysqli_query( $db, $sql );
+      $data = mysqli_fetch_assoc( $rs );
 
       $face = array('file' => $file, 'hash' => $hash, 'type' => $type, 'tags' => $data['tags'], 'suggestion_id' => $data['id'] );
 
@@ -50,16 +50,16 @@
 
         case 'import':
           $sql = 'INSERT INTO faces (file,added,enabled) VALUES(\''.$f['hash'].'.'.$f['type'].'\','.NOW.',0)';
-          @mysql_query( $sql, $db );
-          $id = mysql_insert_id();
+          @mysqli_query( $db, $sql );
+          $id = mysqli_insert_id();
 
           // create tags
           if( strlen( $f['tags'] ) > 0 ) {
             $tags = explode(',',$f['tags']);
             foreach( $tags as $t ) {
-              $t    = mysql_real_escape_string( trim( $t ));
+              $t    = mysqli_real_escape_string( $db, trim( $t ));
               $sql  = "INSERT INTO tags (face,tag,source,enabled) VALUES(".$id.",'".$t."','import',1)";
-              @mysql_query( $sql, $db );
+              @mysqli_query( $db, $sql );
             }
           }
 
@@ -81,7 +81,7 @@
         // delete tag suggestions
         if( (int)$f['suggestion_id'] > 0 ) {
           $sql = 'DELETE FROM tag_suggestions WHERE id='.$f['suggestion_id'];
-          @mysql_query( $sql, $db );
+          @mysqli_query( $db, $sql );
         }
 
         unset($faces[$i]);

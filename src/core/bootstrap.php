@@ -37,9 +37,17 @@
   define('NOW', time());
 
   // init db
-  $db = @mysql_connect($DBHOST, $DBUSER, $DBPASS); // or die( 'trying' );
-  mysql_select_db($DBNAME,$db);
-  mysql_query( "SET NAMES 'utf8'", $db );
+  $db = @mysqli_connect($DBHOST, $DBUSER, $DBPASS, $DBNAME); // or die( 'trying' );
+
+if (!$db) {
+    echo "Error: Unable to connect to MySQL." . PHP_EOL;
+    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+    exit;
+}
+
+  // mysqli_select_db($DBNAME,$db);
+  mysqli_query( $db, "SET NAMES 'utf8'" );
 
   // init config from DB
   $conf = new Config();
@@ -65,8 +73,8 @@
   function getStats() {
     global $db;
     $sql = 'SELECT COUNT(id) AS total_faces, SUM(views) AS total_views FROM faces WHERE enabled=1';
-    $rs = mysql_query( $sql, $db );
-    $stats = mysql_fetch_assoc( $rs );
+    $rs = mysqli_query( $db, $sql );
+    $stats = mysqli_fetch_assoc( $rs );
     return $stats;
   }
 
@@ -126,7 +134,6 @@
   $os = detectOS();
   $copytext = t('copy-win');
   if( $os['name'] == 'Macintosh' ) $copytext = t('copy-mac');
-  $_CONFIG['copytext'] = $copytext;
 
   // set up ordering
   $_CONFIG['order'] = array(
@@ -138,8 +145,8 @@
   // load categories
   $_CONFIG['category'] = array( 0 => new Category( 0, 'All faces', 0 ));
   $sql = 'SELECT `id`, `name`, `weight` FROM categories ORDER BY weight ASC';
-  $rs = mysql_query( $sql, $db );
-  while( $data = mysql_fetch_assoc( $rs )) {
+  $rs = mysqli_query( $db, $sql );
+  while( $data = mysqli_fetch_assoc( $rs )) {
     $c = new Category( (int)$data['id'], $data['name'], $data['weight'] );
     $_CONFIG['category'][$c->id] = $c;
   }

@@ -1,11 +1,11 @@
 <?php
   $sql = 'SELECT id FROM faces ORDER BY id ASC';
-  $rs = mysql_query( $sql, $db );
-  while ($data = mysql_fetch_array( $rs, MYSQL_ASSOC )) {
+  $rs = mysqli_query( $db, $sql );
+  while ($data = mysqli_fetch_array( $rs, MYSQLI_ASSOC )) {
     array_push( $faces, new Face($data['id'] ));
   }
 
-  mysql_free_result($rs);
+  mysqli_free_result($rs);
 
   usort( $faces, 'sortPopularity');
   $limit = 10;

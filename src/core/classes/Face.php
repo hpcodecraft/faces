@@ -26,8 +26,8 @@
       global $db;
 
       $sql = 'SELECT id, file, views, last_view, added, category, enabled FROM faces WHERE id='.$id;
-      $rs = mysql_query( $sql, $db );
-      $data = mysql_fetch_array( $rs, MYSQL_ASSOC );
+      $rs = mysqli_query( $db, $sql );
+      $data = mysqli_fetch_array( $rs, MYSQLI_ASSOC );
       if( $data != false ) {
         $this->id         = $data['id'];
         $this->file       = $data['file'];
@@ -41,8 +41,8 @@
         $this->popularity = $this->getPopularity();
 
         $sql = 'SELECT tag, enabled FROM tags WHERE face='.$id.' ORDER BY tag ASC';
-        $rs = mysql_query( $sql, $db );
-        while( $t = mysql_fetch_array( $rs, MYSQL_ASSOC )) {
+        $rs = mysqli_query( $db, $sql );
+        while( $t = mysqli_fetch_array( $rs, MYSQLI_ASSOC )) {
 
           if( (int)$t['enabled'] == 1 ) {
             array_push( $this->tags, $t['tag'] );
@@ -66,9 +66,9 @@
         $args['msg'] = 'You have to enter a valid tag! (only letters A-Z, numbers and spaces)';
       }
       else {
-        $sql = "INSERT INTO tags (face,tag,source,enabled) VALUES (".$args['id'].",'".mysql_real_escape_string( $args['tag'] )."','view',0)";
-        $rs = mysql_query( $sql, $db );
-        if( mysql_affected_rows() == 1 ) {
+        $sql = "INSERT INTO tags (face,tag,source,enabled) VALUES (".$args['id'].",'".mysqli_real_escape_string( $db, $args['tag'] )."','view',0)";
+        $rs = mysqli_query( $db, $sql );
+        if( mysqli_affected_rows() == 1 ) {
           $args['success'] = true;
           $args['msg'] = 'Thank you for your help! Your suggestion will be reviewed and published as soon as possible!';
 
@@ -95,8 +95,8 @@
 
       global $db;
       $sql = "UPDATE tags SET enabled=1 WHERE face=".$args['id']." AND tag='".$args['tag']."'";
-      $rs = mysql_query( $sql, $db );
-      if( mysql_affected_rows() == 1 ) {
+      $rs = mysqli_query( $db, $sql );
+      if( mysqli_affected_rows() == 1 ) {
         $args['success'] = true;
         $args['msg'] = 'The tag "'.$args['tag'].'" has been enabled.';
       }
@@ -112,8 +112,8 @@
 
       global $db;
       $sql = "DELETE FROM tags WHERE face=".$args['id']." AND tag='".$args['tag']."'";
-      $rs = mysql_query( $sql, $db );
-      if( mysql_affected_rows() == 1 ) {
+      $rs = mysqli_query( $db, $sql );
+      if( mysqli_affected_rows() == 1 ) {
         $args['success'] = true;
         $args['msg'] = 'The tag "'.$args['tag'].'" has been deleted.';
       }

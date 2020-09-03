@@ -22,9 +22,9 @@
           if (move_uploaded_file($_FILES['submit_file']['tmp_name'], $uploadfile)) {
             // save tags
             if( strlen( $_POST['submit_tags'] ) > 0 ) {
-              $tags = mysql_real_escape_string( $_POST['submit_tags'] );
+              $tags = mysqli_real_escape_string( $db, $_POST['submit_tags'] );
               $sql = "INSERT INTO tag_suggestions (file,tags,from_import) VALUES('".$file."','".$tags."',1)";
-              mysql_query( $sql, $db );
+              mysqli_query( $db, $sql );
             }
             $msg = 'Your face has been submitted, thanks!';
 
